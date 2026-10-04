@@ -1,0 +1,19 @@
+{
+  "name": "dawakhana.com",
+  "version": "1.0.0",
+  "description": "Modern Digital Pharmacy and Ayurvedic & Unani Dispensary Website for Dawakhana.com",
+  "main": "index.html",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "pharmacy",
+    "dawakhana",
+    "ayurveda",
+    "unani",
+    "medicines",
+    "ecommerce"
+  ],
+  "author": "Dawakhana Team",
+  "license": "ISC"
+}

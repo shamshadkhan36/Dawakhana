@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#176B63">
+    <title>Dawakhana.com | आपका स्वास्थ्य, हमारी प्राथमिकता</title>
+    <meta name="description" content="Dawakhana.com - Genuine Allopathic medicines, Unani & Ayurvedic remedies, healthcare devices & wellness essentials. Save up to 20% with Free Express Delivery above ₹500.">
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+
+    <!-- Fonts & CDNs -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Dawakhana Custom Theme -->
+    <link rel="stylesheet" href="assets/css/theme.css">
+</head>
+<body>
+
+    <!-- STICKY HEADER WRAPPER -->
+    <header class="dw-header-sticky-wrapper">
+        <!-- Top Announcement Strip -->
+        <div class="dw-top-bar d-none d-md-block">
+            <div class="container-fluid px-3 px-lg-4 d-flex align-items-center justify-content-between">
+                <div>
+                    <i class="bi bi-tag-fill text-warning me-1"></i> Save up to 20% on all medicines* | 
+                    <i class="bi bi-truck text-white me-1 ms-2"></i> Free Delivery within 5 km on orders above ₹500*
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="tel:919876543210" class="text-white text-decoration-none">
+                        <i class="bi bi-telephone-fill text-warning me-1"></i> +91 98765 43210
+                    </a>
+                    <span>•</span>
+                    <a href="about.html" class="text-white text-decoration-none">
+                        <i class="bi bi-shield-check text-warning me-1"></i> Licence: DL-20B/21B-45920
+                    </a>
+                    <span>•</span>
+                    <span class="text-white">
+                        <i class="bi bi-clock-history me-1"></i> Open 8:00 AM - 11:00 PM Daily
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Header -->
+        <div class="dw-main-nav">
+            <div class="container-fluid px-3 px-lg-4">
+                <div class="row align-items-center gy-2">
+                    <!-- Brand Logo -->
+                    <div class="col-6 col-md-3 col-lg-2">
+                        <a href="index.html" class="dw-brand-logo">
+                            <div class="dw-logo-icon">
+                                <i class="bi bi-plus-square-fill"></i>
+                            </div>
+                            <div>
+                                <h1 class="dw-brand-title">Dawakhana<span>.com</span></h1>
+                                <p class="dw-brand-tagline">आपका स्वास्थ्य, हमारी प्राथमिकता</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="col-12 col-md-5 col-lg-5 order-3 order-md-2">
+                        <div class="dw-search-box">
+                            <i class="bi bi-search dw-search-icon"></i>
+                            <input type="text" class="dw-search-input" placeholder="Search medicines, salts, Unani, Ayurvedic, devices..." autocomplete="off">
+                            <button class="dw-search-clear" type="button"><i class="bi bi-x-circle-fill"></i></button>
+                            <div class="dw-search-results-dropdown"></div>
+                        </div>
+                    </div>
+
+                    <!-- Delivery & Action CTAs -->
+                    <div class="col-6 col-md-4 col-lg-5 order-2 order-md-3 d-flex align-items-center justify-content-end gap-2 gap-lg-3">
+                        <!-- Location Pill -->
+                        <div class="dw-delivery-pill d-none d-lg-flex" data-bs-toggle="modal" data-bs-target="#dwPincodeModal">
+                            <i class="bi bi-geo-alt-fill text-dw-primary"></i>
+                            <div>
+                                <div class="text-muted" style="font-size: 10px; line-height: 1;">Deliver to</div>
+                                <strong class="dw-pincode-display text-truncate" style="max-width: 140px;">Connaught Place (110001)</strong>
+                            </div>
+                            <i class="bi bi-chevron-down text-muted" style="font-size: 11px;"></i>
+                        </div>
+
+                        <!-- Rx Upload Button -->
+                        <button class="dw-header-btn d-none d-sm-inline-flex" onclick="window.DawakhanaApp.openPrescriptionModal()">
+                            <i class="bi bi-receipt text-dw-secondary"></i>
+                            <span>Upload Rx</span>
+                        </button>
+
+                        <!-- Call Pharmacist -->
+                        <a href="tel:919876543210" class="dw-header-btn d-none d-xl-inline-flex text-dark">
+                            <i class="bi bi-headset text-dw-primary"></i>
+                            <span>Helpline</span>
+                        </a>
+
+                        <!-- Cart Button -->
+                        <button class="dw-header-btn dw-cart-btn" onclick="window.DawakhanaApp.openCartDrawer()">
+                            <i class="bi bi-bag-check-fill"></i>
+                            <span class="d-none d-sm-inline">Cart</span>
+                            <span class="dw-badge-count dw-cart-count-badge" style="display: none;">0</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sub-Navigation Categories Strip -->
+        <div class="dw-sub-nav">
+            <div class="container-fluid px-3 px-lg-4 d-flex align-items-center gap-1">
+                <a href="catalogue.html" class="dw-nav-link active">
+                    <i class="bi bi-grid-fill text-dw-primary"></i> All Medicines & Categories
+                </a>
+                <a href="catalogue.html?category=medicines" class="dw-nav-link">Prescription Medicines</a>
+                <a href="catalogue.html?category=ayush" class="dw-nav-link dw-nav-pill-highlight">
+                    <i class="bi bi-flower1"></i> Dawakhana Unani & Ayush
+                </a>
+                <a href="catalogue.html?category=diabetes-care" class="dw-nav-link">Diabetes Care</a>
+                <a href="catalogue.html?category=healthcare-devices" class="dw-nav-link">Devices & Monitors</a>
+                <a href="catalogue.html?category=baby-care" class="dw-nav-link">Baby & Mother Care</a>
+                <a href="catalogue.html?category=wellness" class="dw-nav-link">Wellness & Vitamins</a>
+                <a href="prescription.html" class="dw-nav-link dw-nav-pill-rx ms-auto">
+                    <i class="bi bi-file-earmark-arrow-up-fill"></i> Upload Doctor's Rx
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container-fluid px-3 px-lg-4 py-4">
+
+        <!-- HERO CAROUSEL -->
+        <section class="mb-4">
+            <div id="dwHeroCarousel" class="carousel slide dw-hero-carousel" data-bs-ride="carousel" data-bs-interval="4500">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#dwHeroCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#dwHeroCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#dwHeroCarousel" data-bs-slide-to="2"></button>
+                </div>
+                <div class="carousel-inner">
+                    <!-- Slide 1: 20% Off -->
+                    <div class="carousel-item active">
+                        <div class="dw-hero-slide dw-hero-slide-1">
+                            <div class="row align-items-center w-100">
+                                <div class="col-lg-7 text-white">
+                                    <span class="dw-hero-badge bg-warning text-dark"><i class="bi bi-lightning-charge-fill me-1"></i> Flat 20% Discount Guaranteed</span>
+                                    <h2 class="display-6 fw-bold mb-3">Save up to 20% on Medicines with Fast Home Delivery</h2>
+                                    <p class="lead fs-6 mb-4 text-white-50">100% Genuine allopathic, Unani and Ayurvedic medicines sourced directly from authorized pharmaceutical distributors. Free delivery within 5 km on orders above ₹500.</p>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <a href="catalogue.html" class="btn btn-light text-dw-primary fw-bold px-4 py-2 rounded-pill shadow-sm">
+                                            Shop Now <i class="bi bi-arrow-right ms-1"></i>
+                                        </a>
+                                        <button class="btn btn-outline-light fw-bold px-4 py-2 rounded-pill" onclick="window.DawakhanaApp.openPrescriptionModal()">
+                                            <i class="bi bi-receipt me-1"></i> Upload Prescription
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 d-none d-lg-block text-center">
+                                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&auto=format&fit=crop&q=80" alt="Medicines" class="img-fluid rounded-4 shadow-lg" style="max-height: 250px; object-fit: cover;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Prescription Upload -->
+                    <div class="carousel-item">
+                        <div class="dw-hero-slide dw-hero-slide-2">
+                            <div class="row align-items-center w-100">
+                                <div class="col-lg-7 text-white">
+                                    <span class="dw-hero-badge bg-white text-success"><i class="bi bi-shield-check me-1"></i> Quick Pharmacist Verification</span>
+                                    <h2 class="display-6 fw-bold mb-3">Upload Doctor's Prescription for Instant WhatsApp Order</h2>
+                                    <p class="lead fs-6 mb-4 text-white-50">Simply snap a photo of your doctor's prescription. Our registered pharmacist will review dosage, check availability, apply 20% off and confirm in 5 minutes.</p>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <button class="btn btn-light text-success fw-bold px-4 py-2 rounded-pill shadow-sm" onclick="window.DawakhanaApp.openPrescriptionModal()">
+                                            <i class="bi bi-camera-fill me-1"></i> Upload Rx Photo
+                                        </button>
+                                        <a href="https://api.whatsapp.com/send?phone=919876543210&text=Hello%20Dawakhana,%20I%20want%20to%20order%20medicines" target="_blank" class="btn btn-outline-light fw-bold px-4 py-2 rounded-pill">
+                                            <i class="bi bi-whatsapp me-1"></i> WhatsApp Helpline
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 d-none d-lg-block text-center">
+                                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&auto=format&fit=crop&q=80" alt="Doctor Consultation" class="img-fluid rounded-4 shadow-lg" style="max-height: 250px; object-fit: cover;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Dawakhana Unani & Ayurvedic -->
+                    <div class="carousel-item">
+                        <div class="dw-hero-slide dw-hero-slide-3">
+                            <div class="row align-items-center w-100">
+                                <div class="col-lg-7 text-white">
+                                    <span class="dw-hero-badge bg-white text-dark"><i class="bi bi-flower1 me-1"></i> Dawakhana Heritage Formulations</span>
+                                    <h2 class="display-6 fw-bold mb-3">Authentic Unani & Ayurvedic Wellness for Vitality & Immunity</h2>
+                                    <p class="lead fs-6 mb-4 text-white-50">Pure Himalayan Shilajit, Sharbat Bazoori Motadil, Chyawanprash, Safi, and classic herbal rasayanas prepared with centuries of apothecary expertise.</p>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <a href="catalogue.html?category=ayush" class="btn btn-light text-dark fw-bold px-4 py-2 rounded-pill shadow-sm">
+                                            Explore Unani Range <i class="bi bi-arrow-right ms-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 d-none d-lg-block text-center">
+                                    <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=600&auto=format&fit=crop&q=80" alt="Herbal Shilajit" class="img-fluid rounded-4 shadow-lg" style="max-height: 250px; object-fit: cover;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#dwHeroCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#dwHeroCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </section>
+
+        <!-- QUICK ORDERING ACTIONS STRIP -->
+        <section class="mb-4">
+            <div class="row g-3">
+                <div class="col-6 col-md-3">
+                    <div class="dw-action-card" onclick="window.DawakhanaApp.openPrescriptionModal()">
+                        <div class="dw-action-icon bg-success-subtle text-success">
+                            <i class="bi bi-file-earmark-medical-fill"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-0 fw-bold">Upload Rx</h6>
+                            <small class="text-muted">Doctor Prescription</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a href="https://api.whatsapp.com/send?phone=919876543210&text=Hello%20Dawakhana,%20I%20want%20to%20order%20medicines" target="_blank" class="dw-action-card">
+                        <div class="dw-action-icon bg-success-subtle text-success">
+                            <i class="bi bi-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-0 fw-bold">Order on WhatsApp</h6>
+                            <small class="text-muted">Chat with Pharmacist</small>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a href="tel:919876543210" class="dw-action-card">
+                        <div class="dw-action-icon bg-info-subtle text-info">
+                            <i class="bi bi-telephone-inbound-fill"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-0 fw-bold">Call & Order</h6>
+                            <small class="text-muted">+91 98765 43210</small>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="dw-action-card" data-bs-toggle="modal" data-bs-target="#dwPincodeModal">
+                        <div class="dw-action-icon bg-warning-subtle text-warning">
+                            <i class="bi bi-lightning-charge-fill"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-0 fw-bold">2-Hour Delivery</h6>
+                            <small class="text-muted">Check Pincode Slot</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SHOP BY HEALTH CONCERN -->
+        <section class="mb-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                    <h4 class="mb-0 fw-bold">Shop by Health Concern</h4>
+                    <small class="text-muted">Quick remedies recommended by healthcare experts</small>
+                </div>
+                <a href="catalogue.html" class="fw-bold small text-dw-primary">View All &rarr;</a>
+            </div>
+            <div class="d-flex gap-2 overflow-x-auto pb-2 scrollbar-none" id="dwHealthConcernsContainer">
+                <!-- Injected dynamically via JS -->
+            </div>
+        </section>
+
+        <!-- SPECIAL OFFERS (FLAT 20% OFF) -->
+        <section class="mb-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                    <span class="badge bg-warning text-dark fw-bold mb-1"><i class="bi bi-fire me-1"></i> Top Value Deals</span>
+                    <h4 class="mb-0 fw-bold">Special Offers (Up to 20% Off)*</h4>
+                </div>
+                <a href="catalogue.html?sort=discount" class="fw-bold small text-dw-primary">View All Deals &rarr;</a>
+            </div>
+            <div class="row g-3" id="dwSpecialOffersGrid">
+                <!-- Product cards injected via JS -->
+            </div>
+        </section>
+
+        <!-- SHOP BY PHARMACY CATEGORY -->
+        <section class="mb-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                    <h4 class="mb-0 fw-bold">Shop by Category</h4>
+                    <small class="text-muted">Browse across all healthcare & personal wellness sectors</small>
+                </div>
+                <a href="catalogue.html" class="fw-bold small text-dw-primary">All Categories &rarr;</a>
+            </div>
+            <div class="row g-3" id="dwCategoriesGrid">
+                <!-- Category chips injected via JS -->
+            </div>
+        </section>
+
+        <!-- DAWAKHANA HERBAL & UNANI SPECIALTIES -->
+        <section class="mb-5 p-4 rounded-4" style="background: linear-gradient(135deg, #E8F5E9 0%, #D1EBE7 100%); border: 1px solid rgba(46, 125, 50, 0.2);">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                    <span class="badge bg-success text-white fw-bold mb-1"><i class="bi bi-award-fill me-1"></i> Apothecary Heritage</span>
+                    <h4 class="mb-0 fw-bold text-success-emphasis">Dawakhana Herbal, Unani & Ayurvedic Specials</h4>
+                    <small class="text-muted">Time-tested natural tonics, pure Shilajit, blood purifiers and vitality formulations</small>
+                </div>
+                <a href="catalogue.html?category=ayush" class="btn btn-sm btn-success rounded-pill fw-bold px-3">
+                    Explore Unani Range <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+            <div class="row g-3" id="dwAyushGrid">
+                <!-- Ayush items injected via JS -->
+            </div>
+        </section>
+
+        <!-- PRESCRIPTION MEDICINES & EVERYDAY ESSENTIALS -->
+        <section class="mb-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                    <h4 class="mb-0 fw-bold">Medicines & Everyday Essentials</h4>
+                    <small class="text-muted">Dolo 650, Pan-D, Augmentin, Glycomet & daily clinical care</small>
+                </div>
+                <a href="catalogue.html?category=medicines" class="fw-bold small text-dw-primary">View All &rarr;</a>
+            </div>
+            <div class="row g-3" id="dwMedicinesGrid">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <!-- HEALTHCARE DEVICES & MONITORING -->
+        <section class="mb-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                    <h4 class="mb-0 fw-bold">Healthcare Devices & Monitoring Tools</h4>
+                    <small class="text-muted">Omron BP monitors, Accu-Chek glucometers, nebulizers & pulse oximeters</small>
+                </div>
+                <a href="catalogue.html?category=healthcare-devices" class="fw-bold small text-dw-primary">View All Devices &rarr;</a>
+            </div>
+            <div class="row g-3" id="dwDevicesGrid">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <!-- HOW TO ORDER (4 SIMPLE STEPS) -->
+        <section class="mb-5 py-4 bg-white rounded-4 border p-4 shadow-sm">
+            <div class="text-center mb-4">
+                <span class="badge bg-dw-primary-light text-dw-primary fw-bold px-3 py-1 rounded-pill mb-2">Easy 4-Step Process</span>
+                <h4 class="fw-bold">How to Order from Dawakhana.com</h4>
+                <p class="text-muted mb-0">From search to safe doorstep delivery in 2 hours</p>
+            </div>
+            <div class="row g-4 text-center">
+                <div class="col-6 col-md-3">
+                    <div class="p-3">
+                        <div class="dw-category-icon-box mx-auto mb-3 bg-primary-subtle text-primary">
+                            <i class="bi bi-search"></i>
+                        </div>
+                        <h6 class="fw-bold">1. Search or Upload Rx</h6>
+                        <small class="text-muted">Find medicines or upload photo of doctor's prescription directly.</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="dw-category-icon-box mx-auto mb-3 bg-success-subtle text-success">
+                        <i class="bi bi-person-check-fill"></i>
+                    </div>
+                    <h6 class="fw-bold">2. Pharmacist Review</h6>
+                    <small class="text-muted">Registered pharmacist verifies dosage, strength, and schedule guidelines.</small>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="dw-category-icon-box mx-auto mb-3 bg-warning-subtle text-warning">
+                        <i class="bi bi-percent"></i>
+                    </div>
+                    <h6 class="fw-bold">3. 20% Discount Confirm</h6>
+                    <small class="text-muted">Instant order bill confirmation with up to 20% discount on WhatsApp.</small>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="dw-category-icon-box mx-auto mb-3 bg-danger-subtle text-danger">
+                        <i class="bi bi-truck"></i>
+                    </div>
+                    <h6 class="fw-bold">4. Fast Home Delivery</h6>
+                    <small class="text-muted">Free delivery on orders above ₹500. Temperature-controlled packaging.</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRUST BADGES -->
+        <section class="mb-5">
+            <div class="row g-3">
+                <div class="col-12 col-md-4">
+                    <div class="dw-trust-item">
+                        <div class="dw-trust-icon">
+                            <i class="bi bi-patch-check-fill"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1 fw-bold">100% Genuine Medicines</h6>
+                            <small class="text-muted">Sourced directly from certified licensed manufacturers & distributors.</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="dw-trust-item">
+                        <div class="dw-trust-icon text-success bg-success-subtle">
+                            <i class="bi bi-snow"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1 fw-bold">Cold Chain Storage</h6>
+                            <small class="text-muted">Insulins, vaccines & biologics stored strictly between 2°C - 8°C.</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="dw-trust-item">
+                        <div class="dw-trust-icon text-warning bg-warning-subtle">
+                            <i class="bi bi-person-heart"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1 fw-bold">Qualified Pharmacists</h6>
+                            <small class="text-muted">Every prescription reviewed by experienced registered pharmacists.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="dw-footer">
+        <div class="container-fluid px-3 px-lg-4">
+            <div class="row g-4 mb-4">
+                <!-- Brand Info -->
+                <div class="col-12 col-lg-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <div class="dw-logo-icon" style="width: 36px; height: 36px; font-size: 18px;">
+                            <i class="bi bi-plus-square-fill"></i>
+                        </div>
+                        <h4 class="text-white mb-0 fw-bold">Dawakhana<span class="text-warning">.com</span></h4>
+                    </div>
+                    <p class="small text-white-50">Dawakhana.com is India's premier digital pharmacy and classical herbal dispensary, bridging cutting-edge modern pharmaceuticals with authentic Unani and Ayurvedic healthcare wisdom.</p>
+                    
+                    <div class="dw-footer-license-box">
+                        <div class="d-flex align-items-center gap-2 mb-1 text-warning fw-bold">
+                            <i class="bi bi-shield-check"></i> Statutory Pharmacy Compliance
+                        </div>
+                        <div><strong>Drug Licence No:</strong> DL-20B/21B-45920/2024</div>
+                        <div><strong>Registered Pharmacist:</strong> Dr. A. R. Qureshi (Reg #PH-89421)</div>
+                        <div class="text-white-50 mt-1" style="font-size: 11px;">Complies with Drugs & Cosmetics Act 1940 & Rules 1945. Schedule H/H1 drugs strictly dispensed on valid Rx.</div>
+                    </div>
+                </div>
+
+                <!-- Quick Categories -->
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h6>Categories</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="catalogue.html?category=medicines">Prescription Medicines</a></li>
+                        <li><a href="catalogue.html?category=ayush">Unani & Ayurvedic</a></li>
+                        <li><a href="catalogue.html?category=diabetes-care">Diabetes & Sugar Care</a></li>
+                        <li><a href="catalogue.html?category=healthcare-devices">Healthcare Devices</a></li>
+                        <li><a href="catalogue.html?category=baby-care">Baby & Mother Care</a></li>
+                        <li><a href="catalogue.html?category=wellness">Wellness & Nutrition</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h6>Information</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="prescription.html">Upload Prescription</a></li>
+                        <li><a href="about.html">About Dawakhana</a></li>
+                        <li><a href="about.html#licence">Licence & Verification</a></li>
+                        <li><a href="contact.html">Store Location</a></li>
+                        <li><a href="about.html#safety">Medicine Safety Guide</a></li>
+                        <li><a href="contact.html#faq">FAQs & Order Help</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Support -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <h6>Customer Support & Emergency</h6>
+                    <p class="small text-white-50 mb-2">Need urgent medicines or prescription dosage advice? Contact our licensed dispensary team:</p>
+                    <div class="d-flex flex-column gap-2 mb-3">
+                        <a href="tel:919876543210" class="d-flex align-items-center gap-2 text-white">
+                            <i class="bi bi-telephone-fill text-warning"></i> +91 98765 43210
+                        </a>
+                        <a href="https://api.whatsapp.com/send?phone=919876543210&text=Hello%20Dawakhana" target="_blank" class="d-flex align-items-center gap-2 text-white">
+                            <i class="bi bi-whatsapp text-success"></i> WhatsApp: +91 98765 43210
+                        </a>
+                        <div class="d-flex align-items-start gap-2 text-white-50 small">
+                            <i class="bi bi-geo-alt-fill text-warning mt-1"></i> Opposite SBI Main Branch, Central Market, New Delhi - 110001
+                        </div>
+                    </div>
+                    <div class="p-2 rounded bg-black bg-opacity-25 small text-white-50">
+                        <i class="bi bi-info-circle me-1 text-warning"></i> <strong>Disclaimer:</strong> Content is for informational purposes only and does not substitute medical advice.
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-top border-secondary border-opacity-25 pt-3 d-flex flex-wrap justify-content-between align-items-center small text-white-50">
+                <div>© 2026 Dawakhana.com. All rights reserved.</div>
+                <div class="d-flex gap-3">
+                    <a href="about.html">Privacy Policy</a>
+                    <a href="about.html">Terms of Service</a>
+                    <a href="about.html">Return & Refund Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MOBILE STICKY BOTTOM NAVIGATION -->
+    <nav class="dw-mobile-bottom-nav">
+        <a href="index.html" class="dw-mobile-nav-item active">
+            <i class="bi bi-house-door-fill"></i>
+            <span>Home</span>
+        </a>
+        <a href="catalogue.html" class="dw-mobile-nav-item">
+            <i class="bi bi-grid-fill"></i>
+            <span>Categories</span>
+        </a>
+        <a href="prescription.html" class="dw-mobile-nav-item rx-special">
+            <i class="bi bi-receipt"></i>
+            <span>Upload Rx</span>
+        </a>
+        <a href="contact.html" class="dw-mobile-nav-item">
+            <i class="bi bi-headset"></i>
+            <span>Help</span>
+        </a>
+        <a href="javascript:void(0)" class="dw-mobile-nav-item" onclick="window.DawakhanaApp.openCartDrawer()">
+            <i class="bi bi-bag-check-fill"></i>
+            <span>Cart</span>
+            <span class="dw-mobile-cart-badge dw-cart-count-badge" style="display: none;">0</span>
+        </a>
+    </nav>
+
+    <!-- FLOATING CONTACT BUTTONS (WhatsApp & Direct Call) -->
+    <div class="dw-floating-contact">
+        <a href="https://api.whatsapp.com/send?phone=919876543210&text=Hello%20Dawakhana,%20I%20want%20to%20order%20medicines" target="_blank" class="dw-float-btn dw-float-whatsapp" title="Chat on WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+        </a>
+        <a href="tel:919876543210" class="dw-float-btn dw-float-call" title="Call Pharmacist">
+            <i class="bi bi-telephone-fill"></i>
+        </a>
+    </div>
+
+    <!-- MODAL: OFFCANVAS CART DRAWER -->
+    <div class="offcanvas offcanvas-end dw-cart-drawer" tabindex="-1" id="dwCartDrawer">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title fw-bold d-flex align-items-center gap-2">
+                <i class="bi bi-bag-check-fill text-dw-primary"></i> Your Pharmacy Cart
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column">
+            <!-- Free Delivery Meter -->
+            <div class="dw-cart-free-meter" id="dwCartFreeMeter">
+                <div class="small fw-semibold" id="dwFreeDeliveryMsg">
+                    <i class="bi bi-truck me-1"></i> Add items to calculate free delivery
+                </div>
+                <div class="dw-progress-bar">
+                    <div class="dw-progress-fill" id="dwFreeDeliveryProgress" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <!-- Empty State -->
+            <div id="dwCartEmptyState" class="text-center py-5">
+                <i class="bi bi-cart-x text-muted" style="font-size: 54px;"></i>
+                <h6 class="fw-bold mt-3">Your cart is empty</h6>
+                <p class="text-muted small mb-4">Add your daily medicines or wellness essentials to enjoy 20% discount.</p>
+                <a href="catalogue.html" class="btn btn-dw-primary rounded-pill px-4" data-bs-dismiss="offcanvas">
+                    Browse Medicines
+                </a>
+            </div>
+
+            <!-- Items List -->
+            <div id="dwCartItemsList" class="flex-grow-1 overflow-y-auto pe-1"></div>
+
+            <!-- Cart Footer Summary -->
+            <div id="dwCartFooter" class="border-top pt-3 mt-auto d-none">
+                <div class="d-flex justify-content-between mb-1 small">
+                    <span class="text-muted">Items Subtotal:</span>
+                    <span class="fw-bold" id="dwCartSubtotal">₹0.00</span>
+                </div>
+                <div class="d-flex justify-content-between mb-1 small text-success">
+                    <span>Discount (20% Off):</span>
+                    <span class="fw-bold" id="dwCartSavings">−₹0.00</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2 small">
+                    <span class="text-muted">Delivery Charge:</span>
+                    <span class="fw-bold" id="dwCartDeliveryFee">₹0.00</span>
+                </div>
+                <div class="d-flex justify-content-between border-top pt-2 mb-3 fs-5 fw-bold text-dw-primary">
+                    <span>Total Amount:</span>
+                    <span id="dwCartGrandTotal">₹0.00</span>
+                </div>
+                <button class="btn btn-success w-100 py-2 rounded-pill fw-bold mb-2 shadow-sm d-flex align-items-center justify-content-center gap-2" onclick="window.DawakhanaApp.checkoutViaWhatsApp()">
+                    <i class="bi bi-whatsapp fs-5"></i> Confirm Order on WhatsApp &rarr;
+                </button>
+                <button class="btn btn-outline-danger btn-sm w-100 border-0" onclick="window.DawakhanaApp.clearCart()">
+                    <i class="bi bi-trash3 me-1"></i> Clear Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: PRESCRIPTION UPLOAD -->
+    <div class="modal fade" id="dwRxModal" tabindex="-1" aria-labelledby="dwRxModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow-lg">
+                <div class="modal-header bg-dw-primary text-white rounded-top-4">
+                    <h5 class="modal-title fw-bold" id="dwRxModalLabel">
+                        <i class="bi bi-file-earmark-medical me-2"></i> Upload Doctor's Prescription
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-content border-0 p-4">
+                    <p class="small text-muted mb-3">
+                        <i class="bi bi-shield-check text-success me-1"></i> Our licensed pharmacist will review your prescription, verify medicines and contact you with 20% discount confirmation.
+                    </p>
+
+                    <form id="dwRxUploadForm">
+                        <!-- Dropzone -->
+                        <div class="dw-upload-zone mb-3" id="dwRxDropzone">
+                            <i class="bi bi-cloud-arrow-up text-dw-primary" style="font-size: 40px;"></i>
+                            <h6 class="fw-bold mt-2 mb-1">Click to Upload or Drag & Drop</h6>
+                            <small class="text-muted d-block">Supports JPG, PNG, WEBP or PDF (Max 10MB)</small>
+                            <span class="btn btn-sm btn-outline-primary mt-2 rounded-pill px-3">
+                                <i class="bi bi-camera me-1"></i> Take Photo or Browse
+                            </span>
+                            <input type="file" id="dwRxFileInput" class="d-none" accept="image/*,application/pdf">
+                        </div>
+
+                        <!-- Preview -->
+                        <div id="dwRxPreviewWrap" class="mb-3 text-center d-none">
+                            <img id="dwRxPreviewImg" src="" alt="Prescription Preview" class="dw-upload-preview">
+                            <div class="d-flex justify-content-between align-items-center mt-2 px-2 bg-light p-2 rounded">
+                                <small class="text-truncate fw-semibold" id="dwRxFileName"></small>
+                                <button type="button" class="btn btn-sm text-danger" id="dwRxRemoveFileBtn"><i class="bi bi-trash"></i> Remove</button>
+                            </div>
+                        </div>
+
+                        <!-- Patient Form Fields -->
+                        <div class="mb-2">
+                            <label class="form-label small fw-bold mb-1">Patient Full Name *</label>
+                            <input type="text" class="form-control form-control-sm" id="dwRxName" required placeholder="e.g. Mohd. Farhan">
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label small fw-bold mb-1">Mobile / WhatsApp Number *</label>
+                            <input type="tel" class="form-control form-control-sm" id="dwRxPhone" required placeholder="e.g. 9876543210">
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label small fw-bold mb-1">Delivery Address & Pincode</label>
+                            <input type="text" class="form-control form-control-sm" id="dwRxAddress" placeholder="Flat, Street, Area, Pincode">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold mb-1">Pharmacist Note (Optional)</label>
+                            <input type="text" class="form-control form-control-sm" id="dwRxNotes" placeholder="e.g. Need 1 month dosage, call before dispatch">
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100 py-2 rounded-pill fw-bold d-flex align-items-center justify-content-center gap-2">
+                            <i class="bi bi-whatsapp fs-5"></i> Submit & Open on WhatsApp &rarr;
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: QUICK VIEW PRODUCT -->
+    <div class="modal fade" id="dwQuickViewModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content rounded-4 border-0 shadow-lg">
+                <div class="modal-header border-bottom">
+                    <h5 class="modal-title fw-bold" id="dwQuickViewTitle">Product Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row g-4">
+                        <div class="col-md-5 text-center bg-light rounded-3 p-3 d-flex align-items-center justify-content-center">
+                            <img id="dwQuickViewImg" src="" alt="Medicine" class="img-fluid rounded" style="max-height: 250px; object-fit: contain;">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="text-muted small fw-bold text-uppercase" id="dwQuickViewBrand"></div>
+                            <div class="text-dw-primary fw-semibold small mb-2" id="dwQuickViewComp"></div>
+                            
+                            <div class="mb-2" id="dwQuickViewRxBadge"></div>
+
+                            <div class="d-flex align-items-baseline gap-2 mb-3">
+                                <span class="fs-3 fw-bold text-dw-primary" id="dwQuickViewPrice">₹0.00</span>
+                                <span class="text-decoration-line-through text-muted" id="dwQuickViewMrp">₹0.00</span>
+                                <span class="badge bg-warning text-dark fw-bold" id="dwQuickViewDiscount">20% OFF</span>
+                            </div>
+
+                            <div class="mb-3">
+                                <h6 class="fw-bold mb-1">Description</h6>
+                                <p class="small text-muted mb-0" id="dwQuickViewDesc"></p>
+                            </div>
+
+                            <div class="mb-4">
+                                <h6 class="fw-bold mb-1">Dosage & Usage Guidelines</h6>
+                                <p class="small text-muted mb-0" id="dwQuickViewDosage"></p>
+                            </div>
+
+                            <div id="dwQuickViewActionWrap" class="d-flex gap-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: PINCODE SELECTOR -->
+    <div class="modal fade" id="dwPincodeModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content rounded-4 border-0 shadow-lg">
+                <div class="modal-header border-bottom">
+                    <h6 class="modal-title fw-bold"><i class="bi bi-geo-alt-fill text-dw-primary me-1"></i> Choose Delivery Location</h6>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-3">
+                    <form id="dwPincodeForm">
+                        <label class="form-label small text-muted">Enter 6-digit Indian PIN Code:</label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="dwPincodeInput" maxlength="6" pattern="\d{6}" placeholder="e.g. 110001" required>
+                            <button class="btn btn-dw-primary" type="submit">Verify</button>
+                        </div>
+                        <div class="small text-muted">
+                            <i class="bi bi-lightning-charge-fill text-warning"></i> 2-hour express delivery available in Delhi NCR, Mumbai, Bengaluru, and major metro hubs.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/products.js"></script>
+    <script src="assets/js/app.js"></script>
+
+    <!-- Homepage Dynamic Injections -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Render Health Concern Pills
+            const concernsContainer = document.getElementById('dwHealthConcernsContainer');
+            if (concernsContainer) {
+                concernsContainer.innerHTML = HEALTH_CONCERNS.map(c => `
+                    <a href="catalogue.html?concern=${c.id}" class="dw-concern-pill">
+                        <i class="bi ${c.icon}" style="color: ${c.color}"></i>
+                        <span>${c.name}</span>
+                    </a>
+                `).join('');
+            }
+
+            // Render Categories Grid (First 8)
+            const catGrid = document.getElementById('dwCategoriesGrid');
+            if (catGrid) {
+                catGrid.innerHTML = CATEGORIES.slice(1).map(cat => `
+                    <div class="col-4 col-md-3 col-lg-2">
+                        <a href="catalogue.html?category=${cat.id}" class="dw-category-chip">
+                            <div class="dw-category-icon-box">
+                                <i class="bi ${cat.icon}"></i>
+                            </div>
+                            <h6 class="dw-category-name">${cat.name}</h6>
+                            <small class="text-muted" style="font-size: 11px;">(${cat.count} items)</small>
+                        </a>
+                    </div>
+                `).join('');
+            }
+
+            // Render Special Offers (Top 4 discounted items)
+            const specialGrid = document.getElementById('dwSpecialOffersGrid');
+            if (specialGrid) {
+                const topDeals = PRODUCTS.slice(0, 4);
+                specialGrid.innerHTML = topDeals.map(p => window.DawakhanaApp.renderProductCard(p)).join('');
+            }
+
+            // Render Dawakhana Herbal / Ayush specials
+            const ayushGrid = document.getElementById('dwAyushGrid');
+            if (ayushGrid) {
+                const ayushItems = PRODUCTS.filter(p => p.category === 'ayush').slice(0, 4);
+                ayushGrid.innerHTML = ayushItems.map(p => window.DawakhanaApp.renderProductCard(p)).join('');
+            }
+
+            // Render Everyday Medicines
+            const medGrid = document.getElementById('dwMedicinesGrid');
+            if (medGrid) {
+                const medItems = PRODUCTS.filter(p => p.category === 'medicines').slice(0, 4);
+                medGrid.innerHTML = medItems.map(p => window.DawakhanaApp.renderProductCard(p)).join('');
+            }
+
+            // Render Healthcare Devices
+            const devGrid = document.getElementById('dwDevicesGrid');
+            if (devGrid) {
+                const devItems = PRODUCTS.filter(p => p.category === 'healthcare-devices').slice(0, 4);
+                devGrid.innerHTML = devItems.map(p => window.DawakhanaApp.renderProductCard(p)).join('');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#176B63">
+    <title>Medicines & Healthcare Catalogue | Dawakhana.com</title>
+    <meta name="description" content="Browse authentic medicines, Unani & Ayurvedic formulations, healthcare devices, and daily wellness essentials with 20% discount on Dawakhana.com.">
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+
+    <!-- Fonts & CDNs -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Dawakhana Custom Theme -->
+    <link rel="stylesheet" href="assets/css/theme.css">
+</head>
+<body>
+
+    <!-- STICKY HEADER WRAPPER -->
+    <header class="dw-header-sticky-wrapper">
+        <!-- Top Announcement Strip -->
+        <div class="dw-top-bar d-none d-md-block">
+            <div class="container-fluid px-3 px-lg-4 d-flex align-items-center justify-content-between">
+                <div>
+                    <i class="bi bi-tag-fill text-warning me-1"></i> Save up to 20% on all medicines* | 
+                    <i class="bi bi-truck text-white me-1 ms-2"></i> Free Delivery within 5 km on orders above ₹500*
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="tel:919876543210" class="text-white text-decoration-none">
+                        <i class="bi bi-telephone-fill text-warning me-1"></i> +91 98765 43210
+                    </a>
+                    <span>•</span>
+                    <a href="about.html" class="text-white text-decoration-none">
+                        <i class="bi bi-shield-check text-warning me-1"></i> Licence: DL-20B/21B-45920
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Header -->
+        <div class="dw-main-nav">
+            <div class="container-fluid px-3 px-lg-4">
+                <div class="row align-items-center gy-2">
+                    <div class="col-6 col-md-3 col-lg-2">
+                        <a href="index.html" class="dw-brand-logo">
+                            <div class="dw-logo-icon">
+                                <i class="bi bi-plus-square-fill"></i>
+                            </div>
+                            <div>
+                                <h1 class="dw-brand-title">Dawakhana<span>.com</span></h1>
+                                <p class="dw-brand-tagline">आपका स्वास्थ्य, हमारी प्राथमिकता</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-12 col-md-5 col-lg-5 order-3 order-md-2">
+                        <div class="dw-search-box">
+                            <i class="bi bi-search dw-search-icon"></i>
+                            <input type="text" class="dw-search-input" id="dwCatalogueSearchInput" placeholder="Search medicines, salts, Unani, Ayurvedic, devices..." autocomplete="off">
+                            <button class="dw-search-clear" type="button"><i class="bi bi-x-circle-fill"></i></button>
+                            <div class="dw-search-results-dropdown"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-5 order-2 order-md-3 d-flex align-items-center justify-content-end gap-2 gap-lg-3">
+                        <button class="dw-header-btn d-none d-sm-inline-flex" onclick="window.DawakhanaApp.openPrescriptionModal()">
+                            <i class="bi bi-receipt text-dw-secondary"></i>
+                            <span>Upload Rx</span>
+                        </button>
+
+                        <button class="dw-header-btn dw-cart-btn" onclick="window.DawakhanaApp.openCartDrawer()">
+                            <i class="bi bi-bag-check-fill"></i>
+                            <span class="d-none d-sm-inline">Cart</span>
+                            <span class="dw-badge-count dw-cart-count-badge" style="display: none;">0</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sub-Nav -->
+        <div class="dw-sub-nav">
+            <div class="container-fluid px-3 px-lg-4 d-flex align-items-center gap-1">
+                <a href="index.html" class="dw-nav-link"><i class="bi bi-arrow-left"></i> Home</a>
+                <a href="catalogue.html" class="dw-nav-link active">All Catalogue</a>
+                <a href="catalogue.html?category=medicines" class="dw-nav-link">Prescription Medicines</a>
+                <a href="catalogue.html?category=ayush" class="dw-nav-link dw-nav-pill-highlight">Dawakhana Unani</a>
+                <a href="catalogue.html?category=diabetes-care" class="dw-nav-link">Diabetes Care</a>
+                <a href="catalogue.html?category=healthcare-devices" class="dw-nav-link">Devices</a>
+                <a href="prescription.html" class="dw-nav-link dw-nav-pill-rx ms-auto">
+                    <i class="bi bi-file-earmark-arrow-up-fill"></i> Upload Rx
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- BREADCRUMBS & TOP BAR -->
+    <div class="bg-white border-bottom py-2">
+        <div class="container-fluid px-3 px-lg-4 d-flex align-items-center justify-content-between">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0 small">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Pharmacy Catalogue</li>
+                </ol>
+            </nav>
+            <button class="btn btn-sm btn-outline-secondary d-lg-none rounded-pill" type="button" data-bs-toggle="offcanvas" data-bs-target="#dwFilterOffcanvas">
+                <i class="bi bi-funnel me-1"></i> Filters
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN CATALOGUE CONTAINER -->
+    <main class="container-fluid px-3 px-lg-4 py-4">
+        <div class="row g-4">
+            <!-- DESKTOP SIDEBAR FILTERS -->
+            <div class="col-lg-3 d-none d-lg-block">
+                <div class="bg-white rounded-4 border p-3 shadow-sm sticky-top" style="top: 130px; z-index: 10;">
+                    <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+                        <h6 class="mb-0 fw-bold"><i class="bi bi-funnel-fill text-dw-primary me-1"></i> Filters</h6>
+                        <button class="btn btn-sm btn-link text-decoration-none p-0 text-danger" onclick="resetFilters()">Clear All</button>
+                    </div>
+
+                    <!-- Category Filter -->
+                    <div class="mb-4">
+                        <h6 class="fw-bold small text-muted text-uppercase mb-2">Category</h6>
+                        <div class="d-flex flex-column gap-1" id="dwFilterCategories">
+                            <!-- Populated via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Health Concern Filter -->
+                    <div class="mb-4">
+                        <h6 class="fw-bold small text-muted text-uppercase mb-2">Health Concern</h6>
+                        <div class="d-flex flex-column gap-1" id="dwFilterConcerns">
+                            <!-- Populated via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Prescription Filter -->
+                    <div class="mb-4">
+                        <h6 class="fw-bold small text-muted text-uppercase mb-2">Prescription Type</h6>
+                        <div class="form-check small mb-1">
+                            <input class="form-check-input" type="radio" name="rxFilter" id="rxAll" value="all" checked onchange="applyFilters()">
+                            <label class="form-check-label" for="rxAll">All Products</label>
+                        </div>
+                        <div class="form-check small mb-1">
+                            <input class="form-check-input" type="radio" name="rxFilter" id="rxOTC" value="otc" onchange="applyFilters()">
+                            <label class="form-check-label" for="rxOTC">OTC (No Rx Required)</label>
+                        </div>
+                        <div class="form-check small">
+                            <input class="form-check-input" type="radio" name="rxFilter" id="rxOnly" value="rx" onchange="applyFilters()">
+                            <label class="form-check-label" for="rxOnly">Prescription (Rx) Required</label>
+                        </div>
+                    </div>
+
+                    <!-- Brand Filter -->
+                    <div class="mb-2">
+                        <h6 class="fw-bold small text-muted text-uppercase mb-2">Top Brands</h6>
+                        <select class="form-select form-select-sm" id="dwBrandSelect" onchange="applyFilters()">
+                            <option value="all">All Brands</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT GRID & SORTING -->
+            <div class="col-lg-9">
+                <!-- Sorting & Count Header -->
+                <div class="bg-white rounded-4 border p-3 mb-4 shadow-sm d-flex flex-wrap justify-content-between align-items-center gap-2">
+                    <div>
+                        <h5 class="mb-0 fw-bold" id="dwCatalogueTitle">All Medicines & Healthcare Products</h5>
+                        <small class="text-muted" id="dwProductCount">Showing all items</small>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <label class="small text-muted text-nowrap fw-semibold">Sort By:</label>
+                        <select class="form-select form-select-sm rounded-pill" id="dwSortSelect" onchange="applyFilters()" style="width: auto;">
+                            <option value="popularity">Most Popular</option>
+                            <option value="discount">Highest Discount (Up to 20%)</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="name">Name: A to Z</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Active Filter Badges -->
+                <div id="dwActiveFiltersWrap" class="d-flex flex-wrap gap-2 mb-3"></div>
+
+                <!-- Products Grid -->
+                <div class="row g-3" id="dwCatalogueGrid">
+                    <!-- Cards injected via JS -->
+                </div>
+
+                <!-- Empty State -->
+                <div id="dwNoResultsState" class="text-center py-5 bg-white rounded-4 border p-4 d-none">
+                    <i class="bi bi-search text-muted" style="font-size: 48px;"></i>
+                    <h5 class="fw-bold mt-3">No matching medicines found</h5>
+                    <p class="text-muted small mb-4">We might still have this medicine in our physical dispensary store! Upload your doctor's prescription directly for verification.</p>
+                    <button class="btn btn-success rounded-pill px-4" onclick="window.DawakhanaApp.openPrescriptionModal()">
+                        <i class="bi bi-receipt me-1"></i> Upload Prescription for Check
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- MOBILE FILTER OFFCANVAS -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="dwFilterOffcanvas">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title fw-bold"><i class="bi bi-funnel-fill text-dw-primary me-1"></i> Filters</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div id="dwMobileFiltersContent"></div>
+            <button class="btn btn-dw-primary w-100 rounded-pill mt-3 py-2" data-bs-dismiss="offcanvas">Apply Filters</button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="dw-footer">
+        <div class="container-fluid px-3 px-lg-4 text-center text-white-50 small">
+            <p class="mb-1">Dawakhana.com • Licensed Digital Pharmacy (DL-20B/21B-45920/2024)</p>
+            <p class="mb-0">Opposite SBI Main Branch, Central Market, New Delhi - 110001 | Phone: +91 98765 43210</p>
+        </div>
+    </footer>
+
+    <!-- MOBILE STICKY BOTTOM NAVIGATION -->
+    <nav class="dw-mobile-bottom-nav">
+        <a href="index.html" class="dw-mobile-nav-item">
+            <i class="bi bi-house-door-fill"></i>
+            <span>Home</span>
+        </a>
+        <a href="catalogue.html" class="dw-mobile-nav-item active">
+            <i class="bi bi-grid-fill"></i>
+            <span>Categories</span>
+        </a>
+        <a href="prescription.html" class="dw-mobile-nav-item rx-special">
+            <i class="bi bi-receipt"></i>
+            <span>Upload Rx</span>
+        </a>
+        <a href="contact.html" class="dw-mobile-nav-item">
+            <i class="bi bi-headset"></i>
+            <span>Help</span>
+        </a>
+        <a href="javascript:void(0)" class="dw-mobile-nav-item" onclick="window.DawakhanaApp.openCartDrawer()">
+            <i class="bi bi-bag-check-fill"></i>
+            <span>Cart</span>
+            <span class="dw-mobile-cart-badge dw-cart-count-badge" style="display: none;">0</span>
+        </a>
+    </nav>
+
+    <!-- FLOATING CONTACT -->
+    <div class="dw-floating-contact">
+        <a href="https://api.whatsapp.com/send?phone=919876543210&text=Hello%20Dawakhana,%20I%20want%20to%20order%20medicines" target="_blank" class="dw-float-btn dw-float-whatsapp">
+            <i class="bi bi-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- MODALS: Cart, Rx, QuickView, Pincode -->
+    <div class="offcanvas offcanvas-end dw-cart-drawer" tabindex="-1" id="dwCartDrawer">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title fw-bold"><i class="bi bi-bag-check-fill text-dw-primary me-2"></i> Your Pharmacy Cart</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column">
+            <div class="dw-cart-free-meter" id="dwCartFreeMeter">
+                <div class="small fw-semibold" id="dwFreeDeliveryMsg"><i class="bi bi-truck me-1"></i> Free delivery calculation</div>
+                <div class="dw-progress-bar"><div class="dw-progress-fill" id="dwFreeDeliveryProgress" style="width: 0%;"></div></div>
+            </div>
+            <div id="dwCartEmptyState" class="text-center py-5">
+                <i class="bi bi-cart-x text-muted" style="font-size: 54px;"></i>
+                <h6 class="fw-bold mt-3">Your cart is empty</h6>
+                <p class="text-muted small">Add your medicines to unlock up to 20% discount.</p>
+            </div>
+            <div id="dwCartItemsList" class="flex-grow-1 overflow-y-auto"></div>
+            <div id="dwCartFooter" class="border-top pt-3 mt-auto d-none">
+                <div class="d-flex justify-content-between mb-1 small"><span class="text-muted">Subtotal:</span><span class="fw-bold" id="dwCartSubtotal">₹0.00</span></div>
+                <div class="d-flex justify-content-between mb-1 small text-success"><span>Savings (20% Off):</span><span class="fw-bold" id="dwCartSavings">−₹0.00</span></div>
+                <div class="d-flex justify-content-between mb-2 small"><span class="text-muted">Delivery:</span><span class="fw-bold" id="dwCartDeliveryFee">₹0.00</span></div>
+                <div class="d-flex justify-content-between border-top pt-2 mb-3 fs-5 fw-bold text-dw-primary"><span>Total:</span><span id="dwCartGrandTotal">₹0.00</span></div>
+                <button class="btn btn-success w-100 py-2 rounded-pill fw-bold mb-2 shadow-sm" onclick="window.DawakhanaApp.checkoutViaWhatsApp()">
+                    <i class="bi bi-whatsapp me-1"></i> Order on WhatsApp &rarr;
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rx Modal -->
+    <div class="modal fade" id="dwRxModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow-lg">
+                <div class="modal-header bg-dw-primary text-white rounded-top-4">
+                    <h5 class="modal-title fw-bold"><i class="bi bi-file-earmark-medical me-2"></i> Upload Doctor's Prescription</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="dwRxUploadForm">
+                        <div class="dw-upload-zone mb-3" id="dwRxDropzone">
+                            <i class="bi bi-cloud-arrow-up text-dw-primary" style="font-size: 38px;"></i>
+                            <h6 class="fw-bold mt-2 mb-1">Click to Upload Prescription</h6>
+                            <input type="file" id="dwRxFileInput" class="d-none" accept="image/*,application/pdf">
+                        </div>
+                        <div id="dwRxPreviewWrap" class="mb-3 text-center d-none">
+                            <img id="dwRxPreviewImg" src="" alt="Rx Preview" class="dw-upload-preview">
+                            <div class="d-flex justify-content-between align-items-center mt-2 px-2 bg-light p-2 rounded">
+                                <small class="text-truncate fw-semibold" id="dwRxFileName"></small>
+                                <button type="button" class="btn btn-sm text-danger" id="dwRxRemoveFileBtn"><i class="bi bi-trash"></i> Remove</button>
+                            </div>
+                        </div>
+                        <div class="mb-2"><input type="text" class="form-control form-control-sm" id="dwRxName" required placeholder="Patient Name"></div>
+                        <div class="mb-2"><input type="tel" class="form-control form-control-sm" id="dwRxPhone" required placeholder="Mobile / WhatsApp Number"></div>
+                        <div class="mb-3"><input type="text" class="form-control form-control-sm" id="dwRxAddress" placeholder="Delivery Address & Pincode"></div>
+                        <button type="submit" class="btn btn-success w-100 py-2 rounded-pill fw-bold">
+                            <i class="bi bi-whatsapp me-1"></i> Submit & Open on WhatsApp &rarr;
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div class="modal fade" id="dwQuickViewModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content rounded-4 border-0 shadow-lg">
+                <div class="modal-header border-bottom">
+                    <h5 class="modal-title fw-bold" id="dwQuickViewTitle">Product Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row g-4">
+                        <div class="col-md-5 text-center bg-light rounded-3 p-3">
+                            <img id="dwQuickViewImg" src="" alt="Medicine" class="img-fluid rounded" style="max-height: 250px; object-fit: contain;">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="text-muted small fw-bold text-uppercase" id="dwQuickViewBrand"></div>
+                            <div class="text-dw-primary fw-semibold small mb-2" id="dwQuickViewComp"></div>
+                            <div class="mb-2" id="dwQuickViewRxBadge"></div>
+                            <div class="d-flex align-items-baseline gap-2 mb-3">
+                                <span class="fs-3 fw-bold text-dw-primary" id="dwQuickViewPrice">₹0.00</span>
+                                <span class="text-decoration-line-through text-muted" id="dwQuickViewMrp">₹0.00</span>
+                                <span class="badge bg-warning text-dark fw-bold" id="dwQuickViewDiscount">20% OFF</span>
+                            </div>
+                            <p class="small text-muted mb-2" id="dwQuickViewDesc"></p>
+                            <p class="small text-muted mb-3" id="dwQuickViewDosage"></p>
+                            <div id="dwQuickViewActionWrap" class="d-flex gap-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/products.js"></script>
+    <script src="assets/js/app.js"></script>
+
+    <!-- Catalogue Filtering Script -->
+    <script>
+        let selectedCategory = 'all';
+        let selectedConcern = 'all';
+        let selectedBrand = 'all';
+        let selectedRx = 'all';
+        let searchQuery = '';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Read URL params
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('category')) selectedCategory = params.get('category');
+            if (params.get('concern')) selectedConcern = params.get('concern');
+            if (params.get('brand')) selectedBrand = params.get('brand');
+            if (params.get('q')) {
+                searchQuery = params.get('q');
+                const inp = document.getElementById('dwCatalogueSearchInput');
+                if (inp) inp.value = searchQuery;
+            }
+
+            // Populate category filters
+            const catContainer = document.getElementById('dwFilterCategories');
+            if (catContainer) {
+                catContainer.innerHTML = CATEGORIES.map(c => `
+                    <button class="btn btn-sm text-start py-1 px-2 border-0 rounded-2 ${selectedCategory === c.id ? 'bg-dw-primary text-white fw-bold' : 'text-dark'}" onclick="setCategory('${c.id}')">
+                        <i class="bi ${c.icon} me-1"></i> ${c.name} <span class="small opacity-75">(${c.count})</span>
+                    </button>
+                `).join('');
+            }
+
+            // Populate Health Concerns
+            const concernContainer = document.getElementById('dwFilterConcerns');
+            if (concernContainer) {
+                concernContainer.innerHTML = HEALTH_CONCERNS.map(h => `
+                    <div class="form-check small mb-1">
+                        <input class="form-check-input" type="radio" name="concernFilter" id="concern_${h.id}" value="${h.id}" ${selectedConcern === h.id ? 'checked' : ''} onchange="setConcern('${h.id}')">
+                        <label class="form-check-label" for="concern_${h.id}"><i class="bi ${h.icon} me-1" style="color: ${h.color}"></i> ${h.name}</label>
+                    </div>
+                `).join('');
+            }
+
+            // Populate Brands Dropdown
+            const brandSelect = document.getElementById('dwBrandSelect');
+            if (brandSelect) {
+                BRANDS.forEach(b => {
+                    const opt = document.createElement('option');
+                    opt.value = b;
+                    opt.textContent = b;
+                    if (selectedBrand === b) opt.selected = true;
+                    brandSelect.appendChild(opt);
+                });
+            }
+
+            // Populate Mobile Filters Clone
+            const mobFilters = document.getElementById('dwMobileFiltersContent');
+            if (mobFilters && catContainer) {
+                mobFilters.innerHTML = `
+                    <div class="mb-3">
+                        <h6 class="fw-bold small text-muted text-uppercase mb-2">Categories</h6>
+                        <div class="d-flex flex-column gap-1">${catContainer.innerHTML}</div>
+                    </div>
+                `;
+            }
+
+            applyFilters();
+        });
+
+        function setCategory(catId) {
+            selectedCategory = catId;
+            document.querySelectorAll('#dwFilterCategories button').forEach(b => {
+                b.className = 'btn btn-sm text-start py-1 px-2 border-0 rounded-2 text-dark';
+            });
+            event.currentTarget.className = 'btn btn-sm text-start py-1 px-2 border-0 rounded-2 bg-dw-primary text-white fw-bold';
+            applyFilters();
+        }
+
+        function setConcern(concernId) {
+            selectedConcern = concernId;
+            applyFilters();
+        }
+
+        function resetFilters() {
+            selectedCategory = 'all';
+            selectedConcern = 'all';
+            selectedBrand = 'all';
+            selectedRx = 'all';
+            searchQuery = '';
+            const searchInput = document.getElementById('dwCatalogueSearchInput');
+            if (searchInput) searchInput.value = '';
+            const brandSelect = document.getElementById('dwBrandSelect');
+            if (brandSelect) brandSelect.value = 'all';
+            const rxRadio = document.getElementById('rxAll');
+            if (rxRadio) rxRadio.checked = true;
+            document.querySelectorAll('input[name="concernFilter"]').forEach(r => r.checked = false);
+            applyFilters();
+        }
+
+        function applyFilters() {
+            const sortVal = document.getElementById('dwSortSelect')?.value || 'popularity';
+            const rxChecked = document.querySelector('input[name="rxFilter"]:checked')?.value || 'all';
+            const brandVal = document.getElementById('dwBrandSelect')?.value || 'all';
+            const searchInput = document.getElementById('dwCatalogueSearchInput');
+            if (searchInput) searchQuery = searchInput.value.trim().toLowerCase();
+
+            let filtered = PRODUCTS.filter(p => {
+                // Category match
+                if (selectedCategory !== 'all' && p.category !== selectedCategory) return false;
+                // Concern match
+                if (selectedConcern !== 'all' && p.concern !== selectedConcern) return false;
+                // Brand match
+                if (brandVal !== 'all' && p.brand !== brandVal) return false;
+                // Rx match
+                if (rxChecked === 'otc' && p.rxRequired) return false;
+                if (rxChecked === 'rx' && !p.rxRequired) return false;
+                // Search query match
+                if (searchQuery) {
+                    const match = p.name.toLowerCase().includes(searchQuery) ||
+                                  p.composition.toLowerCase().includes(searchQuery) ||
+                                  p.brand.toLowerCase().includes(searchQuery) ||
+                                  p.tags.some(t => t.toLowerCase().includes(searchQuery));
+                    if (!match) return false;
+                }
+                return true;
+            });
+
+            // Sorting
+            if (sortVal === 'price-low') {
+                filtered.sort((a, b) => a.price - b.price);
+            } else if (sortVal === 'price-high') {
+                filtered.sort((a, b) => b.price - a.price);
+            } else if (sortVal === 'discount') {
+                filtered.sort((a, b) => b.discount - a.discount);
+            } else if (sortVal === 'name') {
+                filtered.sort((a, b) => a.name.localeCompare(b.name));
+            } else {
+                filtered.sort((a, b) => b.reviewsCount - a.reviewsCount);
+            }
+
+            // Render
+            const grid = document.getElementById('dwCatalogueGrid');
+            const noResults = document.getElementById('dwNoResultsState');
+            const countEl = document.getElementById('dwProductCount');
+
+            if (countEl) countEl.textContent = `Showing ${filtered.length} products with up to 20% discount`;
+
+            if (filtered.length === 0) {
+                if (grid) grid.innerHTML = '';
+                if (noResults) noResults.classList.remove('d-none');
+            } else {
+                if (noResults) noResults.classList.add('d-none');
+                if (grid) grid.innerHTML = filtered.map(p => window.DawakhanaApp.renderProductCard(p)).join('');
+            }
+        }
+    </script>
+</body>
+</html>
