@@ -1,10 +1,11 @@
 /**
  * Dawakhana.com - Product Database
  * Authentic Medicines, Unani & Ayurvedic Formulations, Devices & Personal Care
+ * Real medicine packaging photos from pharmaceutical distributors
  */
 
 const PRODUCTS = [
-    // --- PRESCRIPTION MEDICINES ---
+    // --- PRESCRIPTION & CLINICAL MEDICINES ---
     {
         id: "prod-001",
         name: "Dolo 650 Tablet",
@@ -23,7 +24,7 @@ const PRODUCTS = [
         rating: 4.8,
         reviewsCount: 342,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/dolo_650.jpg",
         description: "Dolo 650 Tablet helps relieve fever, body ache, and mild to moderate pain. Effective antipyretic and analgesic for quick relief.",
         dosage: "Take 1 tablet after meals as advised by physician. Do not exceed 4 tablets in 24 hours.",
         tags: ["fever", "pain", "paracetamol", "headache", "popular"]
@@ -46,7 +47,7 @@ const PRODUCTS = [
         rating: 4.7,
         reviewsCount: 198,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/augmentin_625.jpg",
         description: "Augmentin 625 Duo Tablet is a broad-spectrum penicillin-type antibiotic used to treat bacterial infections of lungs, ears, sinuses, and urinary tract.",
         dosage: "As directed by physician. Complete full course as prescribed.",
         tags: ["antibiotic", "infection", "amoxicillin", "rx"]
@@ -69,7 +70,7 @@ const PRODUCTS = [
         rating: 4.8,
         reviewsCount: 260,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1550572017-edd951aa8f72?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/dm_med_004_pan_d_capsule.jpg",
         description: "Pan-D Capsule is an effective gastroprokinetic used for gastroesophageal reflux disease (GERD), acid reflux, heartburn, and nausea.",
         dosage: "Take 1 capsule once daily in morning on empty stomach 30 mins before breakfast.",
         tags: ["acidity", "gas", "gerd", "pantoprazole", "stomach"]
@@ -92,7 +93,7 @@ const PRODUCTS = [
         rating: 4.9,
         reviewsCount: 145,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/telma_40.jpg",
         description: "Telma 40 Tablet is used in treating hypertension (high blood pressure) and reducing the risk of heart complications.",
         dosage: "Take once daily at the same time each day, with or without food.",
         tags: ["bp", "hypertension", "heart", "telmisartan", "chronic"]
@@ -115,7 +116,7 @@ const PRODUCTS = [
         rating: 4.6,
         reviewsCount: 210,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1585435557343-3b092031a831?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/dm_med_005_azithral_500_tablet.jpg",
         description: "Azithral 500 Tablet is an antibiotic used to treat bacterial infections of throat, tonsils, chest, lungs, and skin.",
         dosage: "1 tablet daily for 3 to 5 days, preferably 1 hour before or 2 hours after meals.",
         tags: ["antibiotic", "throat", "cough", "azithromycin"]
@@ -138,7 +139,7 @@ const PRODUCTS = [
         rating: 4.8,
         reviewsCount: 310,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1628771065518-0d82f1938462?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/dm_med_006_glycomet_500_sr_tabl.jpg",
         description: "Glycomet 500 SR Tablet helps regulate high blood sugar levels in type 2 diabetes mellitus.",
         dosage: "Take with meals to minimize stomach upset as directed by your physician.",
         tags: ["diabetes", "sugar", "metformin", "glycomet"]
@@ -161,7 +162,7 @@ const PRODUCTS = [
         rating: 4.7,
         reviewsCount: 185,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1584017911766-d451b3d0e843?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/dm_med_007_montair_lc_tablet.jpg",
         description: "Montair-LC Tablet provides relief from allergic symptoms like runny nose, sneezing, watery eyes, and allergic rhinitis.",
         dosage: "Take 1 tablet at night before bed or as prescribed.",
         tags: ["allergy", "cold", "sneezing", "asthma", "cipla"]
@@ -184,7 +185,7 @@ const PRODUCTS = [
         rating: 4.8,
         reviewsCount: 420,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1550572017-edd951aa8f72?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/dm_med_009_shelcal_500_tablet.jpg",
         description: "Shelcal 500 contains essential Calcium and Vitamin D3 to strengthen bones, joints, and teeth. Prevents osteoporosis.",
         dosage: "1 tablet daily after main meal.",
         tags: ["calcium", "vitamind3", "bone", "joints", "shelcal"]
@@ -207,7 +208,7 @@ const PRODUCTS = [
         rating: 4.8,
         reviewsCount: 154,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/dm_med_008_allegra_120mg_tablet.jpg",
         description: "Allegra 120mg is a non-drowsy antihistamine that treats symptoms of seasonal allergic rhinitis, hives, and skin itchiness.",
         dosage: "Take 1 tablet daily with a glass of water.",
         tags: ["allergy", "non-drowsy", "skin allergy", "fexofenadine"]
@@ -230,7 +231,7 @@ const PRODUCTS = [
         rating: 4.7,
         reviewsCount: 170,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1577401239170-897942555fb3?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/dm_med_014_ascoril_ls_syrup.jpg",
         description: "Ascoril-LS Syrup provides rapid relief from chest congestion, productive wet cough, and helps clear mucus from airways.",
         dosage: "5ml to 10ml thrice daily or as prescribed by physician.",
         tags: ["cough", "syrup", "mucus", "chest congestion"]
@@ -255,7 +256,7 @@ const PRODUCTS = [
         rating: 4.9,
         reviewsCount: 512,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/dabur_chyawanprash.jpg",
         description: "Dawakhana's signature Himalayan Shilajit Resin is lab-tested for heavy metals and rich in 84+ trace minerals and fulvic acid for stamina, energy, and rejuvenation.",
         dosage: "Pea-sized quantity dissolved in warm milk or lukewarm water once daily in the morning.",
         tags: ["shilajit", "unani", "ayurveda", "vitality", "dawakhana-special"]
@@ -278,7 +279,7 @@ const PRODUCTS = [
         rating: 4.8,
         reviewsCount: 230,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/dm_med_013_gelusil_mps_antacid_.jpg",
         description: "A classical Unani formulation for liver and kidney cooling, urinary tract purification, and natural detoxification.",
         dosage: "25ml to 50ml mixed with cold water or lassi twice daily.",
         tags: ["unani", "sharbat", "liver", "cooling", "dawakhana-special"]
@@ -301,7 +302,7 @@ const PRODUCTS = [
         rating: 4.8,
         reviewsCount: 680,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/dabur_chyawanprash.jpg",
         description: "Dabur Chyawanprash is clinically tested for 2X immunity. Formulated with pure amla and potent Ayurvedic herbs to combat seasonal illnesses.",
         dosage: "1 tablespoon twice daily with warm milk.",
         tags: ["dabur", "chyawanprash", "immunity", "amla", "ayurveda"]
@@ -324,7 +325,7 @@ const PRODUCTS = [
         rating: 4.9,
         reviewsCount: 540,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1584017911766-d451b3d0e843?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/dm_med_010_liv52_ds_tablet.jpg",
         description: "Himalaya Liv.52 DS is an Ayurvedic hepatoprotective formulation supporting liver enzyme regeneration and healthy metabolism.",
         dosage: "1 to 2 tablets twice daily before meals.",
         tags: ["liv52", "himalaya", "liver", "appetite", "ayurveda"]
@@ -347,7 +348,7 @@ const PRODUCTS = [
         rating: 4.6,
         reviewsCount: 380,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1556760544-74068565f05c?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/dm_med_015_benadryl_dr_cough_sy.jpg",
         description: "Unani herbal tonic for natural blood purification, acne clearance, clear radiant skin, and digestive regulation.",
         dosage: "10ml (2 teaspoons) daily in a cup of lukewarm water.",
         tags: ["safi", "hamdard", "blood purifier", "acne", "glowing skin"]
@@ -370,7 +371,7 @@ const PRODUCTS = [
         rating: 4.8,
         reviewsCount: 390,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/dm_wel_033_himalaya_ashvagandha.jpg",
         description: "Natural adaptogen that lowers cortisol, alleviates everyday stress, boosts sleep quality and strengthens immunity.",
         dosage: "1 tablet twice daily after meals with milk or water.",
         tags: ["ashwagandha", "stress", "sleep", "himalaya", "ayurveda"]
@@ -395,7 +396,7 @@ const PRODUCTS = [
         rating: 4.9,
         reviewsCount: 680,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/omron_bp_monitor.jpg",
         description: "Gold standard Japanese technology with IntelliSense measurement. One-touch operation with irregular heartbeat detection and hypertension indicator.",
         dosage: "Use sitting relaxed; measure at heart level. 3-Year Brand Warranty.",
         tags: ["omron", "bp monitor", "hypertension", "device", "best-seller"]
@@ -418,7 +419,7 @@ const PRODUCTS = [
         rating: 4.8,
         reviewsCount: 520,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1603398938378-e54eab446dde?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/accuchek_active.jpg",
         description: "Accurate blood sugar monitoring in 5 seconds with easy double-check feature and 500-test memory recall.",
         dosage: "Use with Accu-Chek Active strips only. Follow enclosed manual.",
         tags: ["accu-chek", "sugar testing", "glucometer", "diabetes", "roche"]
@@ -441,7 +442,7 @@ const PRODUCTS = [
         rating: 4.9,
         reviewsCount: 840,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/dm_dev_088_accu_chek_active_5.jpg",
         description: "Genuine Roche Accu-Chek Active test strips for accurate self-monitoring of blood glucose levels at home.",
         dosage: "For in-vitro diagnostic use. Close vial tightly immediately after removal.",
         tags: ["strips", "accu-chek", "diabetes", "sugar"]
@@ -464,7 +465,7 @@ const PRODUCTS = [
         rating: 4.7,
         reviewsCount: 310,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/dm_dev_089_dr_trust_usa_water.jpg",
         description: "Fast 20-second reading with fever alert beeper, memory recall, and flexible waterproof probe safe for adults and children.",
         dosage: "Oral, rectal, or underarm temperature reading.",
         tags: ["thermometer", "fever", "dr trust", "medical device"]
@@ -487,7 +488,7 @@ const PRODUCTS = [
         rating: 4.6,
         reviewsCount: 220,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/dm_dev_091_dr_morepen_cn_06_c.jpg",
         description: "Effective medication delivery for asthma, bronchitis, and respiratory disorders. Low noise and fine mist atomization.",
         dosage: "Use respiratory medication as prescribed by doctor.",
         tags: ["nebulizer", "asthma", "breathing", "dr morepen"]
@@ -512,7 +513,7 @@ const PRODUCTS = [
         rating: 4.9,
         reviewsCount: 940,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/dm_dia_066_pampers_all_round_pr.jpg",
         description: "12-hour leak-lock system infused with aloe vera lotion to prevent diaper rash and keep delicate baby skin soft and dry.",
         dosage: "Change diaper every 4-6 hours or when wet indicator turns blue.",
         tags: ["pampers", "diapers", "baby care", "rash protection"]
@@ -535,7 +536,7 @@ const PRODUCTS = [
         rating: 4.8,
         reviewsCount: 410,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/dm_dia_069_himalaya_gentle_baby.jpg",
         description: "Alcohol-free and hypoallergenic moisturizing baby wipes for gentle cleansing during diaper change and daily feeding.",
         dosage: "Pull out wipe and gently cleanse skin. Reseal flap firmly.",
         tags: ["baby wipes", "himalaya", "hypoallergenic", "aloe vera"]
@@ -558,7 +559,7 @@ const PRODUCTS = [
         rating: 4.8,
         reviewsCount: 310,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/dm_bc_055_nestle_cerelac_baby.jpg",
         description: "Complementary food for babies from 6 months onwards. Rich in essential iron and nutrients for healthy physical growth.",
         dosage: "Boil water, let cool to lukewarm. Mix 3 level scoops with 75ml water.",
         tags: ["cerelac", "nestle", "baby food", "iron rich"]
@@ -581,7 +582,7 @@ const PRODUCTS = [
         rating: 4.9,
         reviewsCount: 290,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1608248597359-0062a4079815?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/dm_bc_051_sebamed_baby_cleansi.jpg",
         description: "100% soap-free and alkali-free bar with pH 5.5 to support development of baby's natural acid mantle against dryness.",
         dosage: "Lather gently on damp skin and rinse thoroughly.",
         tags: ["sebamed", "soap-free", "baby soap", "ph 5.5"]
@@ -606,7 +607,7 @@ const PRODUCTS = [
         rating: 4.9,
         reviewsCount: 780,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/dm_pc_036_dettol_antiseptic_di.jpg",
         description: "India's trusted antiseptic disinfectant protection against 100 illness-causing germs for cuts, wounds, and household hygiene.",
         dosage: "Dilute 1 capful in a mug of water for first aid cleaning.",
         tags: ["dettol", "antiseptic", "first aid", "hygiene", "germs"]
@@ -629,7 +630,7 @@ const PRODUCTS = [
         rating: 4.8,
         reviewsCount: 360,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/dm_pc_039_volini_pain_relief_g.jpg",
         description: "Fast absorbing deep penetrative pain relief gel for backache, neck pain, sprains, muscle aches, and joint stiffness.",
         dosage: "Apply thin layer to affected area 3-4 times daily with gentle massage.",
         tags: ["volini", "pain relief", "backache", "sprain", "gel"]
@@ -652,7 +653,7 @@ const PRODUCTS = [
         rating: 4.8,
         reviewsCount: 610,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1550572017-edd951aa8f72?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/dm_wel_021_revital_h_daily_heal.jpg",
         description: "Formulated with Ginseng extract and essential micronutrients to boost stamina, mental alertness, and fight daily fatigue.",
         dosage: "1 capsule daily after breakfast with water.",
         tags: ["revital", "multivitamin", "ginseng", "energy", "sun pharma"]
@@ -675,7 +676,7 @@ const PRODUCTS = [
         rating: 4.9,
         reviewsCount: 880,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/dm_wel_024_limcee_500mg_chewabl.jpg",
         description: "Delicious orange-flavored chewable Vitamin C tablet for skin glow, wound healing, and powerful antioxidant defense.",
         dosage: "Chew 1 tablet daily or as advised.",
         tags: ["limcee", "vitamin c", "immunity", "chewable", "abbott"]
@@ -698,7 +699,7 @@ const PRODUCTS = [
         rating: 4.8,
         reviewsCount: 420,
         inStock: true,
-        image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500&auto=format&fit=crop&q=60",
+        image: "https://demodekho.in/drugmart/assets/images/products/dm_pc_038_betadine_10_ointment.jpg",
         description: "Broad-spectrum antiseptic ointment that kills bacteria, fungi, and viruses to prevent infections in minor burns and cuts.",
         dosage: "Clean wound and apply topically once or twice daily.",
         tags: ["betadine", "povidone", "first aid", "antiseptic ointment"]
@@ -748,5 +749,5 @@ const CONFIG = {
     pharmacistName: "Dr. A. R. Qureshi (Regd. Pharmacist #PH-89421)",
     freeDeliveryThreshold: 500,
     deliveryFee: 40,
-    discountRate: 0.20 // 20% off
+    discountRate: 0.20
 };

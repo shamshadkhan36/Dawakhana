@@ -1,6 +1,6 @@
 /**
  * Dawakhana.com - Interactive Web Application Engine
- * Cart Management, Instant Search, WhatsApp Ordering, Rx Upload & Pincode Checker
+ * Cart Management, Instant Search, Seamless In-App Checkout, WhatsApp Ordering, Rx Upload & Pincode Checker
  */
 
 (function () {
@@ -11,12 +11,14 @@
         cart: [],
         currentPincode: localStorage.getItem('dw_pincode') || '110001',
         currentLocationName: localStorage.getItem('dw_location') || 'Connaught Place, New Delhi',
+        checkoutItems: [], // items currently being checked out
 
         init() {
             this.loadCart();
             this.setupSearch();
             this.setupPincode();
             this.setupPrescriptionUpload();
+            this.setupOrderForm();
             this.setupModalsAndEvents();
             this.updateCartUI();
         },
@@ -86,10 +88,10 @@
             this.saveCart();
         },
 
-        getCartTotals() {
-            const count = this.cart.reduce((sum, item) => sum + item.qty, 0);
-            const subtotal = this.cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-            const totalMrp = this.cart.reduce((sum, item) => sum + (item.mrp * item.qty), 0);
+        getCartTotals(items = this.cart) {
+            const count = items.reduce((sum, item) => sum + item.qty, 0);
+            const subtotal = items.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const totalMrp = items.reduce((sum, item) => sum + (item.mrp * item.qty), 0);
             const totalSavings = Math.max(0, totalMrp - subtotal);
             const isFreeDelivery = subtotal >= CONFIG.freeDeliveryThreshold;
             const deliveryFee = subtotal === 0 ? 0 : (isFreeDelivery ? 0 : CONFIG.deliveryFee);
@@ -141,7 +143,7 @@
                             meterMsg.innerHTML = `<i class="bi bi-check-circle-fill text-success me-1"></i> <strong>Congratulations!</strong> You qualify for <strong>FREE Delivery</strong>`;
                             meterBar.style.width = '100%';
                         } else {
-                            meterMsg.innerHTML = `<i class="bi bi-truck me-1 text-dw-primary"></i> Add <strong>₹${totals.remainingForFree}</strong> more to get <strong>FREE Express Delivery</strong>!`;
+                            meterMsg.innerHTML = `<i class="bi bi-truck me-1 text-dw-primary"></i> Add <strong>₹${totals.remainingForFree}</strong> more for <strong>FREE Delivery</strong>!`;
                             meterBar.style.width = `${totals.freeDeliveryProgress}%`;
                         }
                     }
@@ -204,7 +206,7 @@
                             ${product.rxRequired ? '<span class="dw-badge-rx"><i class="bi bi-file-earmark-medical me-1"></i>Rx</span>' : ''}
                         </div>
                         <div class="dw-product-img-wrap" onclick="window.DawakhanaApp.openQuickView('${product.id}')">
-                            <img src="${product.image}" alt="${product.name}" class="dw-product-img" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=60'">
+                            <img src="${product.image}" alt="${product.name}" class="dw-product-img" loading="lazy" onerror="this.src='https://demodekho.in/drugmart/assets/images/products/dolo_650.jpg'">
                         </div>
                         <div class="dw-product-body">
                             <span class="dw-product-brand">${product.brand}</span>
@@ -221,7 +223,7 @@
                                 <span class="dw-price-save">Save ₹${savings}</span>
                             </div>
                             
-                            <div class="dw-btn-container" id="dwBtnWrap-${product.id}">
+                            <div class="dw-btn-container d-flex flex-column gap-2" id="dwBtnWrap-${product.id}">
                                 ${this.renderCardButton(product.id, qty)}
                             </div>
                         </div>
@@ -231,21 +233,26 @@
         },
 
         renderCardButton(productId, qty) {
-            if (qty > 0) {
-                return `
-                    <div class="dw-qty-stepper">
-                        <button class="dw-qty-btn" onclick="window.DawakhanaApp.updateCartQty('${productId}', -1)">−</button>
-                        <span class="dw-qty-val">${qty}</span>
-                        <button class="dw-qty-btn" onclick="window.DawakhanaApp.updateCartQty('${productId}', 1)">+</button>
+            return `
+                <div class="d-flex gap-2">
+                    <div class="flex-grow-1">
+                        ${qty > 0 ? `
+                            <div class="dw-qty-stepper">
+                                <button class="dw-qty-btn" onclick="window.DawakhanaApp.updateCartQty('${productId}', -1)">−</button>
+                                <span class="dw-qty-val">${qty}</span>
+                                <button class="dw-qty-btn" onclick="window.DawakhanaApp.updateCartQty('${productId}', 1)">+</button>
+                            </div>
+                        ` : `
+                            <button class="dw-btn-add w-100" onclick="window.DawakhanaApp.addToCart('${productId}', 1)">
+                                <i class="bi bi-cart-plus"></i> Add
+                            </button>
+                        `}
                     </div>
-                `;
-            } else {
-                return `
-                    <button class="dw-btn-add" onclick="window.DawakhanaApp.addToCart('${productId}', 1)">
-                        <i class="bi bi-cart-plus"></i> Add to Cart
+                    <button class="btn btn-warning btn-sm rounded-pill fw-bold text-dark px-3 shadow-sm text-nowrap" onclick="window.DawakhanaApp.openDirectOrderModal('${productId}')" title="Instant Order">
+                        <i class="bi bi-lightning-charge-fill"></i> Order
                     </button>
-                `;
-            }
+                </div>
+            `;
         },
 
         refreshProductCardButtons() {
@@ -256,6 +263,214 @@
                     wrap.innerHTML = this.renderCardButton(p.id, cartItem ? cartItem.qty : 0);
                 }
             });
+        },
+
+        // --- ORDERING ENGINE ---
+        // 1. Direct Order for a single product (Buy Now)
+        openDirectOrderModal(productId, qty = 1) {
+            const product = PRODUCTS.find(p => p.id === productId);
+            if (!product) return;
+
+            this.checkoutItems = [{
+                id: product.id,
+                name: product.name,
+                brand: product.brand,
+                price: product.price,
+                mrp: product.mrp,
+                packSize: product.packSize,
+                image: product.image,
+                rxRequired: product.rxRequired,
+                qty: qty
+            }];
+
+            this.renderCheckoutModalContent('Single Product Order');
+            const modalEl = document.getElementById('dwOrderModal');
+            if (modalEl) {
+                bootstrap.Modal.getOrCreateInstance(modalEl).show();
+            }
+        },
+
+        // 2. Checkout for all cart items
+        openCartCheckoutModal() {
+            if (this.cart.length === 0) {
+                alert('Your cart is empty! Please add some medicines first.');
+                return;
+            }
+
+            this.checkoutItems = [...this.cart];
+            this.renderCheckoutModalContent('Full Cart Checkout');
+
+            // Close cart drawer if open
+            const drawerEl = document.getElementById('dwCartDrawer');
+            if (drawerEl) {
+                const offcanvas = bootstrap.Offcanvas.getInstance(drawerEl);
+                if (offcanvas) offcanvas.hide();
+            }
+
+            const modalEl = document.getElementById('dwOrderModal');
+            if (modalEl) {
+                bootstrap.Modal.getOrCreateInstance(modalEl).show();
+            }
+        },
+
+        renderCheckoutModalContent(title) {
+            const itemsListEl = document.getElementById('dwOrderItemsList');
+            const subtotalEl = document.getElementById('dwOrderSubtotal');
+            const savingsEl = document.getElementById('dwOrderSavings');
+            const deliveryEl = document.getElementById('dwOrderDeliveryFee');
+            const grandTotalEl = document.getElementById('dwOrderGrandTotal');
+            const submitBtn = document.getElementById('dwOrderSubmitBtn');
+            const titleEl = document.getElementById('dwOrderModalTitle');
+
+            if (titleEl) titleEl.textContent = title || 'Place Medicine Order';
+
+            const totals = this.getCartTotals(this.checkoutItems);
+
+            if (itemsListEl) {
+                itemsListEl.innerHTML = this.checkoutItems.map(item => `
+                    <div class="d-flex align-items-center gap-2 py-2 border-bottom">
+                        <img src="${item.image}" alt="${item.name}" class="rounded border p-1" style="width: 44px; height: 44px; object-fit: contain;">
+                        <div class="flex-grow-1">
+                            <div class="fw-bold small text-truncate" style="max-width: 220px;">${item.name}</div>
+                            <small class="text-muted">${item.brand} • Qty: ${item.qty}</small>
+                            ${item.rxRequired ? '<span class="badge bg-danger-subtle text-danger ms-1" style="font-size: 10px;">Rx Required</span>' : ''}
+                        </div>
+                        <div class="text-end">
+                            <span class="fw-bold text-dw-primary">₹${(item.price * item.qty).toFixed(2)}</span>
+                            <div class="text-decoration-line-through text-muted" style="font-size: 11px;">₹${(item.mrp * item.qty).toFixed(2)}</div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            if (subtotalEl) subtotalEl.textContent = `₹${totals.subtotal.toFixed(2)}`;
+            if (savingsEl) savingsEl.textContent = `−₹${totals.totalSavings.toFixed(2)}`;
+            if (deliveryEl) deliveryEl.textContent = totals.isFreeDelivery ? 'FREE' : `₹${totals.deliveryFee.toFixed(2)}`;
+            if (grandTotalEl) grandTotalEl.textContent = `₹${totals.grandTotal.toFixed(2)}`;
+            if (submitBtn) submitBtn.innerHTML = `<i class="bi bi-bag-check-fill me-1"></i> Place Order (Pay ₹${totals.grandTotal.toFixed(2)})`;
+
+            // Prefill PIN code
+            const pinInput = document.getElementById('dwOrderPincode');
+            if (pinInput && !pinInput.value) pinInput.value = this.currentPincode;
+        },
+
+        setupOrderForm() {
+            const form = document.getElementById('dwOrderCheckoutForm');
+            if (!form) return;
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                if (this.checkoutItems.length === 0) {
+                    alert('No items selected for order.');
+                    return;
+                }
+
+                const name = document.getElementById('dwOrderName')?.value.trim();
+                const phone = document.getElementById('dwOrderPhone')?.value.trim();
+                const address = document.getElementById('dwOrderAddress')?.value.trim();
+                const pincode = document.getElementById('dwOrderPincode')?.value.trim() || this.currentPincode;
+                const paymentMethod = document.querySelector('input[name="dwOrderPayment"]:checked')?.value || 'Cash on Delivery (COD)';
+                const notes = document.getElementById('dwOrderNotes')?.value.trim() || '';
+
+                const totals = this.getCartTotals(this.checkoutItems);
+                const orderId = 'DW-ORD-' + Math.floor(100000 + Math.random() * 900000);
+                const orderDate = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+
+                const orderData = {
+                    orderId,
+                    orderDate,
+                    name,
+                    phone,
+                    address,
+                    pincode,
+                    paymentMethod,
+                    notes,
+                    items: this.checkoutItems,
+                    totals
+                };
+
+                // Save to localStorage order history
+                try {
+                    const history = JSON.parse(localStorage.getItem('dw_orders') || '[]');
+                    history.unshift(orderData);
+                    localStorage.setItem('dw_orders', JSON.stringify(history.slice(0, 10)));
+                } catch (err) {
+                    console.error('Failed to save order to storage:', err);
+                }
+
+                // If ordered from cart, clear cart
+                const isFromCart = this.cart.length > 0 && this.checkoutItems.length === this.cart.length && this.checkoutItems[0].id === this.cart[0].id;
+                if (isFromCart) {
+                    this.clearCart();
+                }
+
+                // Close checkout modal
+                const modalEl = document.getElementById('dwOrderModal');
+                if (modalEl) {
+                    const bsModal = bootstrap.Modal.getInstance(modalEl);
+                    if (bsModal) bsModal.hide();
+                }
+
+                // Show Success Modal
+                this.showOrderSuccessModal(orderData);
+            });
+        },
+
+        showOrderSuccessModal(order) {
+            const modalEl = document.getElementById('dwOrderSuccessModal');
+            if (!modalEl) return;
+
+            const idEl = document.getElementById('dwSuccessOrderId');
+            const custEl = document.getElementById('dwSuccessCustomer');
+            const addrEl = document.getElementById('dwSuccessAddress');
+            const payEl = document.getElementById('dwSuccessPayment');
+            const totalEl = document.getElementById('dwSuccessTotal');
+            const waBtn = document.getElementById('dwSuccessWhatsAppBtn');
+
+            if (idEl) idEl.textContent = order.orderId;
+            if (custEl) custEl.textContent = `${order.name} (${order.phone})`;
+            if (addrEl) addrEl.textContent = `${order.address}, PIN: ${order.pincode}`;
+            if (payEl) payEl.textContent = order.paymentMethod;
+            if (totalEl) totalEl.textContent = `₹${order.totals.grandTotal.toFixed(2)}`;
+
+            // Build WhatsApp order receipt
+            let itemsSummary = '';
+            order.items.forEach((it, idx) => {
+                itemsSummary += `${idx + 1}. *${it.name}* (Qty: ${it.qty}) - ₹${(it.price * it.qty).toFixed(2)}\n`;
+            });
+
+            const waText = 
+                `*✅ NEW CONFIRMED ORDER - DAWAKHANA.COM*\n` +
+                `-----------------------------------------\n` +
+                `*Order ID:* ${order.orderId}\n` +
+                `*Customer:* ${order.name}\n` +
+                `*Mobile:* ${order.phone}\n` +
+                `*Delivery Address:* ${order.address}, PIN: ${order.pincode}\n` +
+                `*Payment:* ${order.paymentMethod}\n` +
+                `-----------------------------------------\n` +
+                `*ORDER ITEMS:*\n` +
+                itemsSummary +
+                `-----------------------------------------\n` +
+                `*Subtotal:* ₹${order.totals.subtotal.toFixed(2)}\n` +
+                `*Discount Savings (20% Off):* ₹${order.totals.totalSavings.toFixed(2)}\n` +
+                `*Delivery Fee:* ${order.totals.isFreeDelivery ? 'FREE (Express 2-Hour)' : '₹' + order.totals.deliveryFee.toFixed(2)}\n` +
+                `*Grand Total Payable:* ₹${order.totals.grandTotal.toFixed(2)}\n` +
+                `-----------------------------------------\n` +
+                `Please dispatch this order. Thank you!`;
+
+            const waUrl = `https://api.whatsapp.com/send?phone=${CONFIG.whatsapp}&text=${encodeURIComponent(waText)}`;
+            if (waBtn) {
+                waBtn.href = waUrl;
+                waBtn.onclick = () => window.open(waUrl, '_blank');
+            }
+
+            const bsSuccess = bootstrap.Modal.getOrCreateInstance(modalEl);
+            bsSuccess.show();
+
+            // Also open WhatsApp directly
+            window.open(waUrl, '_blank');
+            this.showToast(`Order ${order.orderId} placed successfully!`, 'success');
         },
 
         // --- SEARCH ENGINE WITH HIGHLIGHTING ---
@@ -321,7 +536,6 @@
                     }
                 });
 
-                // Clear button handler
                 if (clearBtn) {
                     clearBtn.addEventListener('click', () => {
                         input.value = '';
@@ -331,7 +545,6 @@
                     });
                 }
 
-                // Close on outside click
                 document.addEventListener('click', (e) => {
                     if (!input.contains(e.target) && dropdown && !dropdown.contains(e.target)) {
                         dropdown.style.display = 'none';
@@ -381,12 +594,11 @@
             }
 
             if (btnWrapEl) {
-                const cartItem = this.cart.find(c => c.id === product.id);
                 btnWrapEl.innerHTML = `
-                    <button class="btn btn-outline-success me-2" onclick="window.DawakhanaApp.orderProductOnWhatsApp('${product.id}')">
-                        <i class="bi bi-whatsapp me-1"></i> Order on WhatsApp
+                    <button class="btn btn-warning fw-bold text-dark px-4 rounded-pill shadow-sm" onclick="window.DawakhanaApp.openDirectOrderModal('${product.id}'); bootstrap.Modal.getInstance(document.getElementById('dwQuickViewModal')).hide();">
+                        <i class="bi bi-lightning-charge-fill me-1"></i> Order Now
                     </button>
-                    <button class="btn btn-dw-primary" onclick="window.DawakhanaApp.addToCart('${product.id}', 1); bootstrap.Modal.getInstance(document.getElementById('dwQuickViewModal')).hide();">
+                    <button class="btn btn-dw-primary rounded-pill px-4" onclick="window.DawakhanaApp.addToCart('${product.id}', 1); bootstrap.Modal.getInstance(document.getElementById('dwQuickViewModal')).hide();">
                         <i class="bi bi-cart-plus me-1"></i> Add to Cart
                     </button>
                 `;
@@ -415,7 +627,6 @@
                         return;
                     }
 
-                    // Known city lookup or fallback
                     let city = 'Delhi NCR';
                     if (pin.startsWith('11')) city = 'New Delhi';
                     else if (pin.startsWith('20')) city = 'Noida / Ghaziabad';
@@ -446,7 +657,7 @@
             }
         },
 
-        // --- PRESCRIPTION UPLOAD & WHATSAPP INTEGRATION ---
+        // --- PRESCRIPTION UPLOAD ---
         setupPrescriptionUpload() {
             const dropzone = document.getElementById('dwRxDropzone');
             const fileInput = document.getElementById('dwRxFileInput');
@@ -460,26 +671,15 @@
 
             if (dropzone && fileInput) {
                 dropzone.addEventListener('click', () => fileInput.click());
-
-                dropzone.addEventListener('dragover', (e) => {
-                    e.preventDefault();
-                    dropzone.classList.add('dragover');
-                });
-
+                dropzone.addEventListener('dragover', (e) => { e.preventDefault(); dropzone.classList.add('dragover'); });
                 dropzone.addEventListener('dragleave', () => dropzone.classList.remove('dragover'));
-
                 dropzone.addEventListener('drop', (e) => {
                     e.preventDefault();
                     dropzone.classList.remove('dragover');
-                    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-                        handleFile(e.dataTransfer.files[0]);
-                    }
+                    if (e.dataTransfer.files && e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
                 });
-
                 fileInput.addEventListener('change', () => {
-                    if (fileInput.files && fileInput.files[0]) {
-                        handleFile(fileInput.files[0]);
-                    }
+                    if (fileInput.files && fileInput.files[0]) handleFile(fileInput.files[0]);
                 });
             }
 
@@ -496,7 +696,7 @@
                     };
                     reader.readAsDataURL(file);
                 } else {
-                    if (previewImg) previewImg.src = 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=60';
+                    if (previewImg) previewImg.src = 'https://demodekho.in/drugmart/assets/images/products/dolo_650.jpg';
                     if (previewWrap) previewWrap.classList.remove('d-none');
                     if (dropzone) dropzone.classList.add('d-none');
                 }
@@ -514,15 +714,13 @@
             if (rxForm) {
                 rxForm.addEventListener('submit', (e) => {
                     e.preventDefault();
-
                     const name = document.getElementById('dwRxName')?.value.trim() || 'Valued Customer';
                     const phone = document.getElementById('dwRxPhone')?.value.trim() || '';
                     const address = document.getElementById('dwRxAddress')?.value.trim() || 'As per doctor prescription';
-                    const notes = document.getElementById('dwRxNotes')?.value.trim() || 'Please check dosage & send total amount with discount';
+                    const notes = document.getElementById('dwRxNotes')?.value.trim() || 'Please check dosage & send bill with 20% discount';
 
                     const leadCode = 'DW-RX-' + Math.floor(100000 + Math.random() * 900000);
 
-                    // Formatted WhatsApp message
                     const waText = 
                         `*📋 NEW PRESCRIPTION ORDER - DAWAKHANA.COM*\n` +
                         `-----------------------------------------\n` +
@@ -533,79 +731,26 @@
                         `*Note:* ${notes}\n` +
                         `*File Uploaded:* ${selectedFile ? selectedFile.name : 'Prescription Photo attached'}\n` +
                         `-----------------------------------------\n` +
-                        `Please verify the prescription with your licensed pharmacist and send medicine details with 20% discount. Thank you!`;
+                        `Please verify the prescription and send medicine bill with 20% discount. Thank you!`;
 
                     const waUrl = `https://api.whatsapp.com/send?phone=${CONFIG.whatsapp}&text=${encodeURIComponent(waText)}`;
 
-                    // Close modal if open
                     const modalEl = document.getElementById('dwRxModal');
                     if (modalEl) {
                         const bsModal = bootstrap.Modal.getInstance(modalEl);
                         if (bsModal) bsModal.hide();
                     }
 
-                    // Open WhatsApp
                     window.open(waUrl, '_blank');
                     this.showToast('Prescription order initialized! Opening WhatsApp...', 'success');
                 });
             }
         },
 
-        // --- ORDER CHECKOUT VIA WHATSAPP ---
-        checkoutViaWhatsApp() {
-            if (this.cart.length === 0) {
-                alert('Your cart is empty! Please add some medicines first.');
-                return;
-            }
-
-            const totals = this.getCartTotals();
-            const orderId = 'DW-ORD-' + Math.floor(100000 + Math.random() * 900000);
-
-            let itemsList = '';
-            this.cart.forEach((item, i) => {
-                itemsList += `${i + 1}. *${item.name}* (Qty: ${item.qty}) - ₹${(item.price * item.qty).toFixed(2)}\n`;
-            });
-
-            const waText = 
-                `*🛒 ORDER FROM DAWAKHANA.COM*\n` +
-                `*Order ID:* ${orderId}\n` +
-                `*Delivery Location:* ${this.currentLocationName} (${this.currentPincode})\n` +
-                `-----------------------------------------\n` +
-                itemsList +
-                `-----------------------------------------\n` +
-                `*Subtotal:* ₹${totals.subtotal.toFixed(2)}\n` +
-                `*Total Savings (20% Off):* ₹${totals.totalSavings.toFixed(2)}\n` +
-                `*Delivery Fee:* ${totals.isFreeDelivery ? 'FREE (Orders above ₹500)' : '₹' + totals.deliveryFee.toFixed(2)}\n` +
-                `*Grand Total:* ₹${totals.grandTotal.toFixed(2)}\n` +
-                `-----------------------------------------\n` +
-                `Please confirm this order and dispatch to my location.`;
-
-            const waUrl = `https://api.whatsapp.com/send?phone=${CONFIG.whatsapp}&text=${encodeURIComponent(waText)}`;
-            window.open(waUrl, '_blank');
-        },
-
-        orderProductOnWhatsApp(productId) {
-            const product = PRODUCTS.find(p => p.id === productId);
-            if (!product) return;
-
-            const text = 
-                `*🩺 ORDER INQUIRY - DAWAKHANA.COM*\n` +
-                `Hello Dawakhana! I want to order:\n` +
-                `*Product:* ${product.name}\n` +
-                `*Brand:* ${product.brand}\n` +
-                `*Offer Price:* ₹${product.price.toFixed(2)} (MRP: ₹${product.mrp.toFixed(2)})\n` +
-                `*Deliver to:* ${this.currentLocationName} (${this.currentPincode})\n` +
-                `Please confirm availability & delivery time.`;
-
-            const url = `https://api.whatsapp.com/send?phone=${CONFIG.whatsapp}&text=${encodeURIComponent(text)}`;
-            window.open(url, '_blank');
-        },
-
         openPrescriptionModal() {
             const modalEl = document.getElementById('dwRxModal');
             if (modalEl) {
-                const bsModal = bootstrap.Modal.getOrCreateInstance(modalEl);
-                bsModal.show();
+                bootstrap.Modal.getOrCreateInstance(modalEl).show();
             } else {
                 window.location.href = 'prescription.html';
             }
@@ -614,8 +759,7 @@
         openCartDrawer() {
             const offcanvasEl = document.getElementById('dwCartDrawer');
             if (offcanvasEl) {
-                const bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
-                bsOffcanvas.show();
+                bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl).show();
             }
         },
 
@@ -652,22 +796,9 @@
             toastEl.addEventListener('hidden.bs.toast', () => toastEl.remove());
         },
 
-        setupModalsAndEvents() {
-            // Mobile search trigger
-            const mobSearchBtn = document.getElementById('dwMobSearchBtn');
-            if (mobSearchBtn) {
-                mobSearchBtn.addEventListener('click', () => {
-                    const input = document.querySelector('.dw-search-input');
-                    if (input) {
-                        input.focus();
-                        input.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }
-                });
-            }
-        }
+        setupModalsAndEvents() {}
     };
 
-    // Helper functions
     function highlightMatch(text, query) {
         if (!query) return escapeHtml(text);
         const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -685,10 +816,8 @@
             .replace(/'/g, '&#039;');
     }
 
-    // Export to global window
     window.DawakhanaApp = DawakhanaApp;
 
-    // Auto-init on DOMContentLoaded
     document.addEventListener('DOMContentLoaded', () => {
         DawakhanaApp.init();
     });
