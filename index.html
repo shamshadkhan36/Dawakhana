@@ -17,6 +17,1034 @@
 
     <!-- Dawakhana Custom Theme -->
     <link rel="stylesheet" href="assets/css/theme.css">
+    <style id="embedded-theme">
+/* ==========================================================
+   Dawakhana.com - Modern Pharmacy Design System
+   Inspired by Drug Mart with High-Conversion Healthcare UI
+   ========================================================== */
+
+:root {
+    --dw-primary: #176B63;           /* Deep healthcare teal */
+    --dw-primary-dark: #0F4F48;
+    --dw-primary-light: #E8F5F3;
+    --dw-primary-soft: #D1EBE7;
+    
+    --dw-secondary: #2E7D32;         /* Healing Herbal Green */
+    --dw-secondary-dark: #1B5E20;
+    --dw-secondary-light: #E8F5E9;
+    
+    --dw-accent: #F59E0B;            /* Warm Amber Gold */
+    --dw-accent-dark: #D97706;
+    --dw-accent-light: #FEF3C7;
+    
+    --dw-danger: #EF4444;
+    --dw-danger-light: #FEE2E2;
+    
+    --dw-dark: #132228;
+    --dw-navy: #1E3A3A;
+    --dw-gray-800: #2D3748;
+    --dw-gray-600: #4A5568;
+    --dw-gray-400: #A0AEC0;
+    --dw-gray-200: #E2E8F0;
+    --dw-gray-100: #F7FAFC;
+    
+    --dw-bg: #F4F8F7;
+    --dw-surface: #FFFFFF;
+    
+    --dw-border: rgba(23, 107, 99, 0.15);
+    --dw-border-subtle: #E2ECE9;
+    
+    --dw-radius-sm: 8px;
+    --dw-radius-md: 12px;
+    --dw-radius-lg: 18px;
+    --dw-radius-xl: 24px;
+    --dw-radius-pill: 9999px;
+    
+    --dw-shadow-xs: 0 1px 3px rgba(19, 34, 40, 0.05);
+    --dw-shadow-sm: 0 2px 8px rgba(19, 34, 40, 0.08);
+    --dw-shadow-md: 0 8px 20px rgba(19, 34, 40, 0.08);
+    --dw-shadow-lg: 0 14px 34px rgba(19, 34, 40, 0.12);
+    
+    --dw-font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --dw-font-body: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background-color: var(--dw-bg);
+    color: var(--dw-dark);
+    font-family: var(--dw-font-body);
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 70px; /* Mobile bottom nav space */
+}
+
+@media (min-width: 992px) {
+    body {
+        padding-bottom: 0;
+    }
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: var(--dw-font-heading);
+    font-weight: 700;
+    color: var(--dw-dark);
+    letter-spacing: -0.02em;
+}
+
+a {
+    color: var(--dw-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--dw-primary-dark);
+}
+
+/* Color Helpers */
+.text-dw-primary { color: var(--dw-primary) !important; }
+.text-dw-secondary { color: var(--dw-secondary) !important; }
+.text-dw-accent { color: var(--dw-accent-dark) !important; }
+.text-dw-muted { color: var(--dw-gray-600) !important; }
+
+.bg-dw-primary { background-color: var(--dw-primary) !important; color: #FFF !important; }
+.bg-dw-primary-light { background-color: var(--dw-primary-light) !important; }
+.bg-dw-secondary { background-color: var(--dw-secondary) !important; color: #FFF !important; }
+.bg-dw-secondary-light { background-color: var(--dw-secondary-light) !important; }
+.bg-dw-accent-light { background-color: var(--dw-accent-light) !important; }
+.bg-dw-surface { background-color: var(--dw-surface) !important; }
+
+/* Sticky Header Wrapper */
+.dw-header-sticky-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    background: #FFFFFF;
+    box-shadow: var(--dw-shadow-sm);
+}
+
+/* Top Announcement Strip */
+.dw-top-bar {
+    background: linear-gradient(90deg, var(--dw-primary-dark) 0%, var(--dw-primary) 100%);
+    color: #FFFFFF;
+    font-size: 12.5px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dw-top-bar a {
+    color: #FFFFFF;
+}
+
+.dw-top-bar a:hover {
+    color: var(--dw-accent-light);
+}
+
+/* Main Navbar */
+.dw-main-nav {
+    padding: 12px 0;
+    background: #FFFFFF;
+    border-bottom: 1px solid var(--dw-border-subtle);
+}
+
+/* Logo */
+.dw-brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.dw-logo-icon {
+    width: 42px;
+    height: 42px;
+    background: linear-gradient(135deg, var(--dw-primary) 0%, var(--dw-secondary) 100%);
+    color: #FFFFFF;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    box-shadow: 0 4px 10px rgba(23, 107, 99, 0.25);
+    flex-shrink: 0;
+}
+
+.dw-brand-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--dw-primary);
+    line-height: 1.1;
+    margin: 0;
+    letter-spacing: -0.03em;
+}
+
+.dw-brand-title span {
+    color: var(--dw-secondary);
+}
+
+.dw-brand-tagline {
+    font-size: 11px;
+    color: var(--dw-gray-600);
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Live Search Bar */
+.dw-search-box {
+    position: relative;
+    width: 100%;
+}
+
+.dw-search-input {
+    width: 100%;
+    height: 46px;
+    border: 1.5px solid var(--dw-border-subtle);
+    border-radius: var(--dw-radius-pill);
+    padding: 0 45px 0 45px;
+    font-size: 14px;
+    background-color: var(--dw-gray-100);
+    transition: all 0.25s ease;
+    color: var(--dw-dark);
+}
+
+.dw-search-input:focus {
+    outline: none;
+    background-color: #FFFFFF;
+    border-color: var(--dw-primary);
+    box-shadow: 0 0 0 3px rgba(23, 107, 99, 0.15);
+}
+
+.dw-search-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--dw-primary);
+    font-size: 17px;
+    pointer-events: none;
+}
+
+.dw-search-clear {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--dw-gray-400);
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0;
+    display: none;
+}
+
+/* Search Dropdown / Autocomplete */
+.dw-search-results-dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+    border-radius: var(--dw-radius-md);
+    box-shadow: var(--dw-shadow-lg);
+    border: 1px solid var(--dw-border-subtle);
+    max-height: 380px;
+    overflow-y: auto;
+    z-index: 1050;
+    display: none;
+}
+
+.dw-search-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--dw-border-subtle);
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.dw-search-item:last-child {
+    border-bottom: none;
+}
+
+.dw-search-item:hover {
+    background-color: var(--dw-primary-light);
+}
+
+.dw-search-item-thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 12px;
+    flex-shrink: 0;
+    background: #f0f0f0;
+}
+
+.dw-search-item-info {
+    flex-grow: 1;
+}
+
+.dw-search-item-name {
+    font-weight: 600;
+    font-size: 13.5px;
+    color: var(--dw-dark);
+    margin-bottom: 2px;
+}
+
+.dw-search-item-meta {
+    font-size: 11.5px;
+    color: var(--dw-gray-600);
+}
+
+.dw-search-item-price {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--dw-primary);
+    text-align: right;
+    white-space: nowrap;
+}
+
+/* Header Action Buttons */
+.dw-header-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: var(--dw-radius-pill);
+    font-size: 13px;
+    font-weight: 600;
+    border: 1.5px solid var(--dw-border-subtle);
+    background: #FFFFFF;
+    color: var(--dw-dark);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.dw-header-btn:hover {
+    border-color: var(--dw-primary);
+    background: var(--dw-primary-light);
+    color: var(--dw-primary);
+}
+
+.dw-cart-btn {
+    position: relative;
+    background: var(--dw-primary);
+    color: #FFFFFF !important;
+    border-color: var(--dw-primary);
+}
+
+.dw-cart-btn:hover {
+    background: var(--dw-primary-dark) !important;
+    border-color: var(--dw-primary-dark);
+    color: #FFFFFF !important;
+}
+
+.dw-badge-count {
+    background-color: var(--dw-accent);
+    color: #1a202c;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: var(--dw-radius-pill);
+}
+
+/* Delivery Pincode Pill */
+.dw-delivery-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    background: var(--dw-gray-100);
+    padding: 6px 14px;
+    border-radius: var(--dw-radius-pill);
+    border: 1px solid var(--dw-border-subtle);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.dw-delivery-pill:hover {
+    background: var(--dw-primary-light);
+    border-color: var(--dw-primary);
+}
+
+/* Sub-Navigation Categories Bar */
+.dw-sub-nav {
+    background: #FFFFFF;
+    border-bottom: 1px solid var(--dw-border-subtle);
+    padding: 6px 0;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+}
+
+.dw-sub-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.dw-nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--dw-gray-800);
+    border-radius: var(--dw-radius-pill);
+    transition: all 0.2s;
+}
+
+.dw-nav-link:hover, .dw-nav-link.active {
+    background: var(--dw-primary-light);
+    color: var(--dw-primary);
+}
+
+.dw-nav-pill-highlight {
+    background: #FEF3C7;
+    color: #B45309 !important;
+    font-weight: 700;
+}
+
+.dw-nav-pill-rx {
+    background: var(--dw-secondary-light);
+    color: var(--dw-secondary-dark) !important;
+    font-weight: 700;
+}
+
+/* Hero Carousel */
+.dw-hero-carousel {
+    border-radius: var(--dw-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--dw-shadow-md);
+    background: #FFFFFF;
+}
+
+.dw-hero-slide {
+    padding: 40px 30px;
+    min-height: 340px;
+    display: flex;
+    align-items: center;
+    border-radius: var(--dw-radius-lg);
+    position: relative;
+}
+
+.dw-hero-slide-1 {
+    background: linear-gradient(135deg, #0F4F48 0%, #176B63 60%, #20897F 100%);
+    color: #FFFFFF;
+}
+
+.dw-hero-slide-2 {
+    background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 60%, #43A047 100%);
+    color: #FFFFFF;
+}
+
+.dw-hero-slide-3 {
+    background: linear-gradient(135deg, #854D0E 0%, #B45309 60%, #D97706 100%);
+    color: #FFFFFF;
+}
+
+.dw-hero-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: var(--dw-radius-pill);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 14px;
+}
+
+/* Quick Ordering Actions Cards */
+.dw-action-card {
+    background: #FFFFFF;
+    border: 1px solid var(--dw-border-subtle);
+    border-radius: var(--dw-radius-md);
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: var(--dw-shadow-xs);
+    transition: all 0.25s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--dw-dark);
+}
+
+.dw-action-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--dw-shadow-md);
+    border-color: var(--dw-primary);
+    color: var(--dw-primary);
+}
+
+.dw-action-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+/* Category Circle Chips */
+.dw-category-chip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 14px 10px;
+    background: #FFFFFF;
+    border: 1px solid var(--dw-border-subtle);
+    border-radius: var(--dw-radius-md);
+    transition: all 0.25s ease;
+    cursor: pointer;
+    height: 100%;
+    text-decoration: none;
+}
+
+.dw-category-chip:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--dw-shadow-sm);
+    border-color: var(--dw-primary);
+}
+
+.dw-category-icon-box {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--dw-radius-pill);
+    background: var(--dw-primary-light);
+    color: var(--dw-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 10px;
+    transition: transform 0.25s;
+}
+
+.dw-category-chip:hover .dw-category-icon-box {
+    transform: scale(1.1);
+    background: var(--dw-primary);
+    color: #FFFFFF;
+}
+
+.dw-category-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--dw-dark);
+    margin: 0;
+    line-height: 1.25;
+}
+
+/* Health Concern Pill */
+.dw-concern-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: #FFFFFF;
+    border: 1px solid var(--dw-border-subtle);
+    border-radius: var(--dw-radius-pill);
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--dw-dark);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.dw-concern-pill:hover, .dw-concern-pill.active {
+    background: var(--dw-primary);
+    color: #FFFFFF !important;
+    border-color: var(--dw-primary);
+    box-shadow: 0 4px 12px rgba(23, 107, 99, 0.25);
+}
+
+/* Product Card */
+.dw-product-card {
+    background: #FFFFFF;
+    border: 1px solid var(--dw-border-subtle);
+    border-radius: var(--dw-radius-md);
+    overflow: hidden;
+    position: relative;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.dw-product-card:hover {
+    box-shadow: var(--dw-shadow-md);
+    border-color: rgba(23, 107, 99, 0.35);
+    transform: translateY(-3px);
+}
+
+.dw-product-badge-wrap {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.dw-badge-discount {
+    background: #FEF3C7;
+    color: #92400E;
+    font-weight: 800;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 6px;
+    border: 1px solid #FDE68A;
+}
+
+.dw-badge-rx {
+    background: #FEE2E2;
+    color: #991B1B;
+    font-weight: 800;
+    font-size: 10.5px;
+    padding: 3px 7px;
+    border-radius: 6px;
+}
+
+.dw-badge-special {
+    background: var(--dw-secondary-light);
+    color: var(--dw-secondary-dark);
+    font-weight: 800;
+    font-size: 10.5px;
+    padding: 3px 7px;
+    border-radius: 6px;
+}
+
+.dw-product-img-wrap {
+    position: relative;
+    padding-top: 75%;
+    overflow: hidden;
+    background: #F8FAF9;
+    cursor: pointer;
+}
+
+.dw-product-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 16px;
+    transition: transform 0.35s ease;
+}
+
+.dw-product-card:hover .dw-product-img {
+    transform: scale(1.06);
+}
+
+.dw-product-body {
+    padding: 14px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.dw-product-brand {
+    font-size: 11px;
+    color: var(--dw-gray-600);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin-bottom: 2px;
+}
+
+.dw-product-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--dw-dark);
+    line-height: 1.35;
+    margin-bottom: 4px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 38px;
+    cursor: pointer;
+}
+
+.dw-product-composition {
+    font-size: 11.5px;
+    color: var(--dw-gray-600);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 6px;
+}
+
+.dw-product-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #B45309;
+    margin-bottom: 10px;
+}
+
+.dw-product-rating i {
+    color: #F59E0B;
+}
+
+.dw-product-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-top: auto;
+    margin-bottom: 12px;
+}
+
+.dw-price-current {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--dw-primary);
+}
+
+.dw-price-mrp {
+    font-size: 12px;
+    color: var(--dw-gray-400);
+    text-decoration: line-line-through;
+    text-decoration: line-through;
+}
+
+.dw-price-save {
+    font-size: 11px;
+    color: var(--dw-secondary);
+    font-weight: 700;
+}
+
+/* Add to Cart Button & Quantity Stepper */
+.dw-btn-add {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: var(--dw-radius-pill);
+    background: #FFFFFF;
+    border: 1.5px solid var(--dw-primary);
+    color: var(--dw-primary);
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.dw-btn-add:hover {
+    background: var(--dw-primary);
+    color: #FFFFFF;
+    box-shadow: 0 4px 10px rgba(23, 107, 99, 0.25);
+}
+
+.dw-qty-stepper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 38px;
+    background: var(--dw-primary);
+    border-radius: var(--dw-radius-pill);
+    padding: 0 4px;
+    color: #FFFFFF;
+}
+
+.dw-qty-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: var(--dw-radius-pill);
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.dw-qty-btn:hover {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.dw-qty-val {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* Offcanvas Cart Drawer */
+.dw-cart-drawer {
+    width: 420px !important;
+    max-width: 90vw !important;
+    border-left: 1px solid var(--dw-border-subtle);
+}
+
+.dw-cart-free-meter {
+    background: var(--dw-primary-light);
+    border-radius: var(--dw-radius-md);
+    padding: 12px 16px;
+    margin-bottom: 16px;
+}
+
+.dw-progress-bar {
+    height: 7px;
+    border-radius: 4px;
+    background: #DEECEF;
+    overflow: hidden;
+    margin-top: 6px;
+}
+
+.dw-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--dw-primary) 0%, var(--dw-secondary) 100%);
+    transition: width 0.4s ease;
+}
+
+.dw-cart-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--dw-border-subtle);
+}
+
+.dw-cart-item-thumb {
+    width: 58px;
+    height: 58px;
+    border-radius: 8px;
+    object-fit: contain;
+    background: #F8FAF9;
+    border: 1px solid var(--dw-border-subtle);
+    padding: 4px;
+}
+
+/* Upload Prescription Dropzone */
+.dw-upload-zone {
+    border: 2px dashed var(--dw-primary);
+    background: var(--dw-primary-light);
+    border-radius: var(--dw-radius-lg);
+    padding: 30px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.dw-upload-zone:hover, .dw-upload-zone.dragover {
+    background: #DEEFEA;
+    border-color: var(--dw-primary-dark);
+}
+
+.dw-upload-preview {
+    max-height: 220px;
+    border-radius: 12px;
+    box-shadow: var(--dw-shadow-sm);
+    object-fit: contain;
+    display: block;
+    margin: 10px auto;
+}
+
+/* Mobile Sticky Bottom Navigation */
+.dw-mobile-bottom-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background: #FFFFFF;
+    border-top: 1px solid var(--dw-border-subtle);
+    z-index: 1040;
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 991px) {
+    .dw-mobile-bottom-nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+
+.dw-mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--dw-gray-600);
+    text-decoration: none;
+    font-size: 10.5px;
+    font-weight: 600;
+    width: 20%;
+    position: relative;
+    padding: 4px 0;
+}
+
+.dw-mobile-nav-item i {
+    font-size: 19px;
+    margin-bottom: 2px;
+}
+
+.dw-mobile-nav-item.active {
+    color: var(--dw-primary);
+}
+
+.dw-mobile-nav-item.rx-special {
+    color: var(--dw-secondary);
+}
+
+.dw-mobile-cart-badge {
+    position: absolute;
+    top: 2px;
+    right: 22%;
+    background: var(--dw-accent);
+    color: #1a202c;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 1px 5px;
+    border-radius: var(--dw-radius-pill);
+}
+
+/* Floating WhatsApp & Call Buttons */
+.dw-floating-contact {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    z-index: 1020;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+@media (min-width: 992px) {
+    .dw-floating-contact {
+        bottom: 30px;
+    }
+}
+
+.dw-float-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #FFFFFF;
+    box-shadow: var(--dw-shadow-lg);
+    text-decoration: none;
+    transition: transform 0.25s ease;
+}
+
+.dw-float-btn:hover {
+    transform: scale(1.12);
+    color: #FFFFFF;
+}
+
+.dw-float-whatsapp {
+    background-color: #25D366;
+}
+
+.dw-float-call {
+    background-color: var(--dw-primary);
+}
+
+/* Trust Badges Bar */
+.dw-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: #FFFFFF;
+    border-radius: var(--dw-radius-md);
+    border: 1px solid var(--dw-border-subtle);
+}
+
+.dw-trust-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--dw-primary-light);
+    color: var(--dw-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+/* Footer */
+.dw-footer {
+    background-color: #0E2724;
+    color: #D1E5E2;
+    padding: 50px 0 25px;
+    border-top: 3px solid var(--dw-primary);
+}
+
+.dw-footer h6 {
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 18px;
+    letter-spacing: -0.01em;
+}
+
+.dw-footer a {
+    color: #A3C9C4;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-size: 13.5px;
+}
+
+.dw-footer a:hover {
+    color: #FFFFFF;
+}
+
+.dw-footer-license-box {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    padding: 16px;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .dw-hero-slide {
+        padding: 30px 18px;
+        min-height: 280px;
+    }
+    .dw-brand-title {
+        font-size: 18px;
+    }
+}
+
+    </style>
 </head>
 <body>
 
@@ -746,8 +1774,1460 @@
 
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/products.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script id="embedded-products">
+/**
+ * Dawakhana.com - Product Database
+ * Authentic Medicines, Unani & Ayurvedic Formulations, Devices & Personal Care
+ */
+
+const PRODUCTS = [
+    // --- PRESCRIPTION MEDICINES ---
+    {
+        id: "prod-001",
+        name: "Dolo 650 Tablet",
+        slug: "dolo-650-tablet",
+        category: "medicines",
+        categoryName: "Prescription Medicines",
+        concern: "Fever",
+        concernName: "Fever & Pain Relief",
+        brand: "Micro Labs Ltd",
+        composition: "Paracetamol (650mg)",
+        mrp: 34.00,
+        price: 27.20,
+        discount: 20,
+        packSize: "Strip of 15 tablets",
+        rxRequired: false,
+        rating: 4.8,
+        reviewsCount: 342,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=60",
+        description: "Dolo 650 Tablet helps relieve fever, body ache, and mild to moderate pain. Effective antipyretic and analgesic for quick relief.",
+        dosage: "Take 1 tablet after meals as advised by physician. Do not exceed 4 tablets in 24 hours.",
+        tags: ["fever", "pain", "paracetamol", "headache", "popular"]
+    },
+    {
+        id: "prod-002",
+        name: "Augmentin 625 Duo Tablet",
+        slug: "augmentin-625-duo-tablet",
+        category: "medicines",
+        categoryName: "Prescription Medicines",
+        concern: "Infections",
+        concernName: "Infections & Antibiotics",
+        brand: "GlaxoSmithKline",
+        composition: "Amoxicillin (500mg) + Clavulanic Acid (125mg)",
+        mrp: 223.50,
+        price: 178.80,
+        discount: 20,
+        packSize: "Strip of 10 tablets",
+        rxRequired: true,
+        rating: 4.7,
+        reviewsCount: 198,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=500&auto=format&fit=crop&q=60",
+        description: "Augmentin 625 Duo Tablet is a broad-spectrum penicillin-type antibiotic used to treat bacterial infections of lungs, ears, sinuses, and urinary tract.",
+        dosage: "As directed by physician. Complete full course as prescribed.",
+        tags: ["antibiotic", "infection", "amoxicillin", "rx"]
+    },
+    {
+        id: "prod-003",
+        name: "Pan-D Capsule",
+        slug: "pan-d-capsule",
+        category: "medicines",
+        categoryName: "Prescription Medicines",
+        concern: "Digestive",
+        concernName: "Digestive & Acidity Care",
+        brand: "Alkem Laboratories Ltd",
+        composition: "Pantoprazole (40mg) + Domperidone (30mg)",
+        mrp: 199.00,
+        price: 159.20,
+        discount: 20,
+        packSize: "Strip of 15 capsules",
+        rxRequired: true,
+        rating: 4.8,
+        reviewsCount: 260,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1550572017-edd951aa8f72?w=500&auto=format&fit=crop&q=60",
+        description: "Pan-D Capsule is an effective gastroprokinetic used for gastroesophageal reflux disease (GERD), acid reflux, heartburn, and nausea.",
+        dosage: "Take 1 capsule once daily in morning on empty stomach 30 mins before breakfast.",
+        tags: ["acidity", "gas", "gerd", "pantoprazole", "stomach"]
+    },
+    {
+        id: "prod-004",
+        name: "Telma 40 Tablet",
+        slug: "telma-40-tablet",
+        category: "medicines",
+        categoryName: "Prescription Medicines",
+        concern: "Heart",
+        concernName: "Heart Health & BP",
+        brand: "Glenmark Pharmaceuticals Ltd",
+        composition: "Telmisartan (40mg)",
+        mrp: 245.00,
+        price: 196.00,
+        discount: 20,
+        packSize: "Strip of 30 tablets",
+        rxRequired: true,
+        rating: 4.9,
+        reviewsCount: 145,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=500&auto=format&fit=crop&q=60",
+        description: "Telma 40 Tablet is used in treating hypertension (high blood pressure) and reducing the risk of heart complications.",
+        dosage: "Take once daily at the same time each day, with or without food.",
+        tags: ["bp", "hypertension", "heart", "telmisartan", "chronic"]
+    },
+    {
+        id: "prod-005",
+        name: "Azithral 500 Tablet",
+        slug: "azithral-500-tablet",
+        category: "medicines",
+        categoryName: "Prescription Medicines",
+        concern: "Infections",
+        concernName: "Infections & Antibiotics",
+        brand: "Alembic Pharmaceuticals Ltd",
+        composition: "Azithromycin (500mg)",
+        mrp: 132.50,
+        price: 106.00,
+        discount: 20,
+        packSize: "Strip of 5 tablets",
+        rxRequired: true,
+        rating: 4.6,
+        reviewsCount: 210,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1585435557343-3b092031a831?w=500&auto=format&fit=crop&q=60",
+        description: "Azithral 500 Tablet is an antibiotic used to treat bacterial infections of throat, tonsils, chest, lungs, and skin.",
+        dosage: "1 tablet daily for 3 to 5 days, preferably 1 hour before or 2 hours after meals.",
+        tags: ["antibiotic", "throat", "cough", "azithromycin"]
+    },
+    {
+        id: "prod-006",
+        name: "Glycomet 500 SR Tablet",
+        slug: "glycomet-500-sr-tablet",
+        category: "diabetes-care",
+        categoryName: "Diabetes Care",
+        concern: "Diabetes",
+        concernName: "Diabetes Care",
+        brand: "USV Pvt Ltd",
+        composition: "Metformin (500mg)",
+        mrp: 48.00,
+        price: 38.40,
+        discount: 20,
+        packSize: "Strip of 20 tablets",
+        rxRequired: true,
+        rating: 4.8,
+        reviewsCount: 310,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1628771065518-0d82f1938462?w=500&auto=format&fit=crop&q=60",
+        description: "Glycomet 500 SR Tablet helps regulate high blood sugar levels in type 2 diabetes mellitus.",
+        dosage: "Take with meals to minimize stomach upset as directed by your physician.",
+        tags: ["diabetes", "sugar", "metformin", "glycomet"]
+    },
+    {
+        id: "prod-007",
+        name: "Montair-LC Tablet",
+        slug: "montair-lc-tablet",
+        category: "medicines",
+        categoryName: "Prescription Medicines",
+        concern: "Cold",
+        concernName: "Cough, Cold & Allergy",
+        brand: "Cipla Ltd",
+        composition: "Montelukast (10mg) + Levocetirizine (5mg)",
+        mrp: 335.00,
+        price: 268.00,
+        discount: 20,
+        packSize: "Strip of 15 tablets",
+        rxRequired: true,
+        rating: 4.7,
+        reviewsCount: 185,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1584017911766-d451b3d0e843?w=500&auto=format&fit=crop&q=60",
+        description: "Montair-LC Tablet provides relief from allergic symptoms like runny nose, sneezing, watery eyes, and allergic rhinitis.",
+        dosage: "Take 1 tablet at night before bed or as prescribed.",
+        tags: ["allergy", "cold", "sneezing", "asthma", "cipla"]
+    },
+    {
+        id: "prod-008",
+        name: "Shelcal 500 Tablet",
+        slug: "shelcal-500-tablet",
+        category: "wellness",
+        categoryName: "Wellness & Nutrition",
+        concern: "Bone",
+        concernName: "Bone & Joint Care",
+        brand: "Torrent Pharmaceuticals Ltd",
+        composition: "Calcium (500mg) + Vitamin D3 (250 IU)",
+        mrp: 144.00,
+        price: 115.20,
+        discount: 20,
+        packSize: "Strip of 15 tablets",
+        rxRequired: false,
+        rating: 4.8,
+        reviewsCount: 420,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1550572017-edd951aa8f72?w=500&auto=format&fit=crop&q=60",
+        description: "Shelcal 500 contains essential Calcium and Vitamin D3 to strengthen bones, joints, and teeth. Prevents osteoporosis.",
+        dosage: "1 tablet daily after main meal.",
+        tags: ["calcium", "vitamind3", "bone", "joints", "shelcal"]
+    },
+    {
+        id: "prod-009",
+        name: "Allegra 120mg Tablet",
+        slug: "allegra-120mg-tablet",
+        category: "medicines",
+        categoryName: "Prescription Medicines",
+        concern: "Cold",
+        concernName: "Cough, Cold & Allergy",
+        brand: "Sanofi India Ltd",
+        composition: "Fexofenadine (120mg)",
+        mrp: 218.00,
+        price: 174.40,
+        discount: 20,
+        packSize: "Strip of 10 tablets",
+        rxRequired: false,
+        rating: 4.8,
+        reviewsCount: 154,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=60",
+        description: "Allegra 120mg is a non-drowsy antihistamine that treats symptoms of seasonal allergic rhinitis, hives, and skin itchiness.",
+        dosage: "Take 1 tablet daily with a glass of water.",
+        tags: ["allergy", "non-drowsy", "skin allergy", "fexofenadine"]
+    },
+    {
+        id: "prod-010",
+        name: "Ascoril-LS Syrup",
+        slug: "ascoril-ls-syrup",
+        category: "medicines",
+        categoryName: "Prescription Medicines",
+        concern: "Cold",
+        concernName: "Cough, Cold & Allergy",
+        brand: "Glenmark Pharmaceuticals Ltd",
+        composition: "Levosalbutamol + Ambroxol + Guaiphenesin",
+        mrp: 128.00,
+        price: 102.40,
+        discount: 20,
+        packSize: "Bottle of 100ml",
+        rxRequired: true,
+        rating: 4.7,
+        reviewsCount: 170,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1577401239170-897942555fb3?w=500&auto=format&fit=crop&q=60",
+        description: "Ascoril-LS Syrup provides rapid relief from chest congestion, productive wet cough, and helps clear mucus from airways.",
+        dosage: "5ml to 10ml thrice daily or as prescribed by physician.",
+        tags: ["cough", "syrup", "mucus", "chest congestion"]
+    },
+
+    // --- DAWAKHANA HERBAL, UNANI & AYURVEDIC SPECIALTIES ---
+    {
+        id: "prod-011",
+        name: "Dawakhana Pure Himalayan Shilajit Resin (20g)",
+        slug: "dawakhana-pure-himalayan-shilajit-resin",
+        category: "ayush",
+        categoryName: "Dawakhana Herbal & Unani",
+        concern: "Immunity",
+        concernName: "Immunity & Vitality",
+        brand: "Dawakhana Apothecary",
+        composition: "100% Purified Himalayan Shilajit (Fulvic Acid > 75%)",
+        mrp: 1299.00,
+        price: 999.00,
+        discount: 23,
+        packSize: "Glass Jar of 20g",
+        rxRequired: false,
+        rating: 4.9,
+        reviewsCount: 512,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+        description: "Dawakhana's signature Himalayan Shilajit Resin is lab-tested for heavy metals and rich in 84+ trace minerals and fulvic acid for stamina, energy, and rejuvenation.",
+        dosage: "Pea-sized quantity dissolved in warm milk or lukewarm water once daily in the morning.",
+        tags: ["shilajit", "unani", "ayurveda", "vitality", "dawakhana-special"]
+    },
+    {
+        id: "prod-012",
+        name: "Dawakhana Sharbat Bazoori Motadil (500ml)",
+        slug: "dawakhana-sharbat-bazoori-motadil",
+        category: "ayush",
+        categoryName: "Dawakhana Herbal & Unani",
+        concern: "Digestive",
+        concernName: "Digestive & Liver Care",
+        brand: "Dawakhana Apothecary",
+        composition: "Tukhm Kasni, Tukhm Kheera, Tukhm Kharbuza & Rose Extracts",
+        mrp: 195.00,
+        price: 156.00,
+        discount: 20,
+        packSize: "Bottle of 500ml",
+        rxRequired: false,
+        rating: 4.8,
+        reviewsCount: 230,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500&auto=format&fit=crop&q=60",
+        description: "A classical Unani formulation for liver and kidney cooling, urinary tract purification, and natural detoxification.",
+        dosage: "25ml to 50ml mixed with cold water or lassi twice daily.",
+        tags: ["unani", "sharbat", "liver", "cooling", "dawakhana-special"]
+    },
+    {
+        id: "prod-013",
+        name: "Dabur Chyawanprash 2X Immunity (1kg)",
+        slug: "dabur-chyawanprash-2x-immunity-1kg",
+        category: "ayush",
+        categoryName: "Dawakhana Herbal & Unani",
+        concern: "Immunity",
+        concernName: "Immunity Support",
+        brand: "Dabur India Ltd",
+        composition: "Amla, Ashwagandha, Pippali, Shatavari & 40+ Herbs",
+        mrp: 475.00,
+        price: 380.00,
+        discount: 20,
+        packSize: "Container of 1kg",
+        rxRequired: false,
+        rating: 4.8,
+        reviewsCount: 680,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=500&auto=format&fit=crop&q=60",
+        description: "Dabur Chyawanprash is clinically tested for 2X immunity. Formulated with pure amla and potent Ayurvedic herbs to combat seasonal illnesses.",
+        dosage: "1 tablespoon twice daily with warm milk.",
+        tags: ["dabur", "chyawanprash", "immunity", "amla", "ayurveda"]
+    },
+    {
+        id: "prod-014",
+        name: "Himalaya Liv.52 DS Tablets",
+        slug: "himalaya-liv-52-ds-tablets",
+        category: "ayush",
+        categoryName: "Dawakhana Herbal & Unani",
+        concern: "Digestive",
+        concernName: "Digestive & Liver Care",
+        brand: "The Himalaya Drug Company",
+        composition: "Himsra, Kasani, Kakamachi & Mandur Bhasma",
+        mrp: 230.00,
+        price: 184.00,
+        discount: 20,
+        packSize: "Bottle of 60 tablets",
+        rxRequired: false,
+        rating: 4.9,
+        reviewsCount: 540,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1584017911766-d451b3d0e843?w=500&auto=format&fit=crop&q=60",
+        description: "Himalaya Liv.52 DS is an Ayurvedic hepatoprotective formulation supporting liver enzyme regeneration and healthy metabolism.",
+        dosage: "1 to 2 tablets twice daily before meals.",
+        tags: ["liv52", "himalaya", "liver", "appetite", "ayurveda"]
+    },
+    {
+        id: "prod-015",
+        name: "Hamdard Safi Natural Blood Purifier (500ml)",
+        slug: "hamdard-safi-natural-blood-purifier",
+        category: "ayush",
+        categoryName: "Dawakhana Herbal & Unani",
+        concern: "Skin",
+        concernName: "Skin & Hair Care",
+        brand: "Hamdard Laboratories",
+        composition: "Neem, Chiraita, Senna, Tulsi & 28 Herbal Actives",
+        mrp: 220.00,
+        price: 176.00,
+        discount: 20,
+        packSize: "Bottle of 500ml",
+        rxRequired: false,
+        rating: 4.6,
+        reviewsCount: 380,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1556760544-74068565f05c?w=500&auto=format&fit=crop&q=60",
+        description: "Unani herbal tonic for natural blood purification, acne clearance, clear radiant skin, and digestive regulation.",
+        dosage: "10ml (2 teaspoons) daily in a cup of lukewarm water.",
+        tags: ["safi", "hamdard", "blood purifier", "acne", "glowing skin"]
+    },
+    {
+        id: "prod-016",
+        name: "Himalaya Ashvagandha Tablets",
+        slug: "himalaya-ashvagandha-tablets",
+        category: "ayush",
+        categoryName: "Dawakhana Herbal & Unani",
+        concern: "Immunity",
+        concernName: "Stress & Vitality",
+        brand: "The Himalaya Drug Company",
+        composition: "Pure Ashwagandha (Withania Somnifera) Root Extract",
+        mrp: 220.00,
+        price: 176.00,
+        discount: 20,
+        packSize: "Bottle of 60 tablets",
+        rxRequired: false,
+        rating: 4.8,
+        reviewsCount: 390,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?w=500&auto=format&fit=crop&q=60",
+        description: "Natural adaptogen that lowers cortisol, alleviates everyday stress, boosts sleep quality and strengthens immunity.",
+        dosage: "1 tablet twice daily after meals with milk or water.",
+        tags: ["ashwagandha", "stress", "sleep", "himalaya", "ayurveda"]
+    },
+
+    // --- HEALTHCARE DEVICES & MONITORING ---
+    {
+        id: "prod-017",
+        name: "Omron HEM-7120 Digital Blood Pressure Monitor",
+        slug: "omron-hem-7120-digital-bp-monitor",
+        category: "healthcare-devices",
+        categoryName: "Healthcare Devices",
+        concern: "Heart",
+        concernName: "Monitoring & Devices",
+        brand: "Omron Healthcare",
+        composition: "Oscillometric Blood Pressure & Pulse Measurement Unit",
+        mrp: 2460.00,
+        price: 1968.00,
+        discount: 20,
+        packSize: "Device with Arm Cuff (22-32 cm) & Batteries",
+        rxRequired: false,
+        rating: 4.9,
+        reviewsCount: 680,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=500&auto=format&fit=crop&q=60",
+        description: "Gold standard Japanese technology with IntelliSense measurement. One-touch operation with irregular heartbeat detection and hypertension indicator.",
+        dosage: "Use sitting relaxed; measure at heart level. 3-Year Brand Warranty.",
+        tags: ["omron", "bp monitor", "hypertension", "device", "best-seller"]
+    },
+    {
+        id: "prod-018",
+        name: "Accu-Chek Active Blood Glucose Meter Kit",
+        slug: "accu-chek-active-blood-glucose-meter-kit",
+        category: "healthcare-devices",
+        categoryName: "Healthcare Devices",
+        concern: "Diabetes",
+        concernName: "Diabetes Monitoring",
+        brand: "Roche Diagnostics",
+        composition: "Glucose Meter + Softclix Lancing Device + 10 Free Strips",
+        mrp: 1599.00,
+        price: 1279.20,
+        discount: 20,
+        packSize: "Kit with Glucometer, Lancets & Strips",
+        rxRequired: false,
+        rating: 4.8,
+        reviewsCount: 520,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1603398938378-e54eab446dde?w=500&auto=format&fit=crop&q=60",
+        description: "Accurate blood sugar monitoring in 5 seconds with easy double-check feature and 500-test memory recall.",
+        dosage: "Use with Accu-Chek Active strips only. Follow enclosed manual.",
+        tags: ["accu-chek", "sugar testing", "glucometer", "diabetes", "roche"]
+    },
+    {
+        id: "prod-019",
+        name: "Accu-Chek Active Blood Glucose Test Strips (50 Strips)",
+        slug: "accu-chek-active-test-strips-50",
+        category: "diabetes-care",
+        categoryName: "Diabetes Care",
+        concern: "Diabetes",
+        concernName: "Diabetes Monitoring",
+        brand: "Roche Diagnostics",
+        composition: "50 Blood Glucose Test Strips",
+        mrp: 1125.00,
+        price: 900.00,
+        discount: 20,
+        packSize: "Vial of 50 strips",
+        rxRequired: false,
+        rating: 4.9,
+        reviewsCount: 840,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=500&auto=format&fit=crop&q=60",
+        description: "Genuine Roche Accu-Chek Active test strips for accurate self-monitoring of blood glucose levels at home.",
+        dosage: "For in-vitro diagnostic use. Close vial tightly immediately after removal.",
+        tags: ["strips", "accu-chek", "diabetes", "sugar"]
+    },
+    {
+        id: "prod-020",
+        name: "Dr Trust USA Waterproof Digital Thermometer",
+        slug: "dr-trust-waterproof-digital-thermometer",
+        category: "healthcare-devices",
+        categoryName: "Healthcare Devices",
+        concern: "Fever",
+        concernName: "Monitoring & Devices",
+        brand: "Dr Trust USA",
+        composition: "High Precision Flexible Tip Digital Sensor",
+        mrp: 350.00,
+        price: 280.00,
+        discount: 20,
+        packSize: "1 Thermometer with Protective Case",
+        rxRequired: false,
+        rating: 4.7,
+        reviewsCount: 310,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=60",
+        description: "Fast 20-second reading with fever alert beeper, memory recall, and flexible waterproof probe safe for adults and children.",
+        dosage: "Oral, rectal, or underarm temperature reading.",
+        tags: ["thermometer", "fever", "dr trust", "medical device"]
+    },
+    {
+        id: "prod-021",
+        name: "Dr. Morepen CN-06 Compressor Nebulizer System",
+        slug: "dr-morepen-cn-06-nebulizer",
+        category: "healthcare-devices",
+        categoryName: "Healthcare Devices",
+        concern: "Cold",
+        concernName: "Respiratory Care",
+        brand: "Dr. Morepen",
+        composition: "Piston Compressor Nebulizer with Adult & Child Masks",
+        mrp: 1850.00,
+        price: 1480.00,
+        discount: 20,
+        packSize: "Complete Nebulizer Kit",
+        rxRequired: false,
+        rating: 4.6,
+        reviewsCount: 220,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=500&auto=format&fit=crop&q=60",
+        description: "Effective medication delivery for asthma, bronchitis, and respiratory disorders. Low noise and fine mist atomization.",
+        dosage: "Use respiratory medication as prescribed by doctor.",
+        tags: ["nebulizer", "asthma", "breathing", "dr morepen"]
+    },
+
+    // --- BABY CARE & NUTRITION ---
+    {
+        id: "prod-022",
+        name: "Pampers All Round Protection Pants (Medium 54 Pants)",
+        slug: "pampers-all-round-protection-pants-medium-54",
+        category: "baby-care",
+        categoryName: "Baby & Mother Care",
+        concern: "Baby Care",
+        concernName: "Baby Care & Diapers",
+        brand: "Procter & Gamble",
+        composition: "Breathable Lotion infused Diaper Pants (7-12 kg)",
+        mrp: 899.00,
+        price: 719.20,
+        discount: 20,
+        packSize: "Pack of 54 Pants",
+        rxRequired: false,
+        rating: 4.9,
+        reviewsCount: 940,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=500&auto=format&fit=crop&q=60",
+        description: "12-hour leak-lock system infused with aloe vera lotion to prevent diaper rash and keep delicate baby skin soft and dry.",
+        dosage: "Change diaper every 4-6 hours or when wet indicator turns blue.",
+        tags: ["pampers", "diapers", "baby care", "rash protection"]
+    },
+    {
+        id: "prod-023",
+        name: "Himalaya Gentle Baby Wet Wipes (Pack of 72)",
+        slug: "himalaya-gentle-baby-wet-wipes-72",
+        category: "baby-care",
+        categoryName: "Baby & Mother Care",
+        concern: "Baby Care",
+        concernName: "Baby Care",
+        brand: "The Himalaya Drug Company",
+        composition: "Aloe Vera & Indian Lotus Extracts",
+        mrp: 195.00,
+        price: 156.00,
+        discount: 20,
+        packSize: "Pack of 72 wipes",
+        rxRequired: false,
+        rating: 4.8,
+        reviewsCount: 410,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=500&auto=format&fit=crop&q=60",
+        description: "Alcohol-free and hypoallergenic moisturizing baby wipes for gentle cleansing during diaper change and daily feeding.",
+        dosage: "Pull out wipe and gently cleanse skin. Reseal flap firmly.",
+        tags: ["baby wipes", "himalaya", "hypoallergenic", "aloe vera"]
+    },
+    {
+        id: "prod-024",
+        name: "Nestle Cerelac Baby Cereal Stage 1 (Wheat-Apple 300g)",
+        slug: "nestle-cerelac-stage-1-wheat-apple-300g",
+        category: "baby-care",
+        categoryName: "Baby & Mother Care",
+        concern: "Baby Care",
+        concernName: "Baby Nutrition",
+        brand: "Nestle India Ltd",
+        composition: "Fortified with Iron, Vitamin C, Zinc & Bifidus BL",
+        mrp: 295.00,
+        price: 236.00,
+        discount: 20,
+        packSize: "Carton of 300g",
+        rxRequired: false,
+        rating: 4.8,
+        reviewsCount: 310,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=500&auto=format&fit=crop&q=60",
+        description: "Complementary food for babies from 6 months onwards. Rich in essential iron and nutrients for healthy physical growth.",
+        dosage: "Boil water, let cool to lukewarm. Mix 3 level scoops with 75ml water.",
+        tags: ["cerelac", "nestle", "baby food", "iron rich"]
+    },
+    {
+        id: "prod-025",
+        name: "Sebamed Baby Cleansing Bar (100g)",
+        slug: "sebamed-baby-cleansing-bar-100g",
+        category: "baby-care",
+        categoryName: "Baby & Mother Care",
+        concern: "Baby Care",
+        concernName: "Baby Skin Care",
+        brand: "Sebapharma Germany",
+        composition: "Soap-free syndet with pH 5.5 + Wheat Germ Oil",
+        mrp: 320.00,
+        price: 256.00,
+        discount: 20,
+        packSize: "Bar of 100g",
+        rxRequired: false,
+        rating: 4.9,
+        reviewsCount: 290,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1608248597359-0062a4079815?w=500&auto=format&fit=crop&q=60",
+        description: "100% soap-free and alkali-free bar with pH 5.5 to support development of baby's natural acid mantle against dryness.",
+        dosage: "Lather gently on damp skin and rinse thoroughly.",
+        tags: ["sebamed", "soap-free", "baby soap", "ph 5.5"]
+    },
+
+    // --- DAILY HEALTH, FIRST AID & DERMA ---
+    {
+        id: "prod-026",
+        name: "Dettol Antiseptic Disinfectant Liquid (550ml)",
+        slug: "dettol-antiseptic-disinfectant-liquid-550ml",
+        category: "personal-care",
+        categoryName: "Personal Care & First Aid",
+        concern: "First Aid",
+        concernName: "First Aid & Hygiene",
+        brand: "Reckitt Benckiser",
+        composition: "Chloroxylenol (4.8% w/v)",
+        mrp: 235.00,
+        price: 188.00,
+        discount: 20,
+        packSize: "Bottle of 550ml",
+        rxRequired: false,
+        rating: 4.9,
+        reviewsCount: 780,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=500&auto=format&fit=crop&q=60",
+        description: "India's trusted antiseptic disinfectant protection against 100 illness-causing germs for cuts, wounds, and household hygiene.",
+        dosage: "Dilute 1 capful in a mug of water for first aid cleaning.",
+        tags: ["dettol", "antiseptic", "first aid", "hygiene", "germs"]
+    },
+    {
+        id: "prod-027",
+        name: "Volini Pain Relief Gel (50g)",
+        slug: "volini-pain-relief-gel-50g",
+        category: "personal-care",
+        categoryName: "Personal Care & First Aid",
+        concern: "Bone",
+        concernName: "Pain & Joint Relief",
+        brand: "Sun Pharmaceutical Industries Ltd",
+        composition: "Diclofenac Diethylamine (1.16% w/w) + Linseed Oil + Menthol",
+        mrp: 180.00,
+        price: 144.00,
+        discount: 20,
+        packSize: "Tube of 50g",
+        rxRequired: false,
+        rating: 4.8,
+        reviewsCount: 360,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500&auto=format&fit=crop&q=60",
+        description: "Fast absorbing deep penetrative pain relief gel for backache, neck pain, sprains, muscle aches, and joint stiffness.",
+        dosage: "Apply thin layer to affected area 3-4 times daily with gentle massage.",
+        tags: ["volini", "pain relief", "backache", "sprain", "gel"]
+    },
+    {
+        id: "prod-028",
+        name: "Revital H Daily Health Supplement (60 Capsules)",
+        slug: "revital-h-daily-health-supplement-60",
+        category: "wellness",
+        categoryName: "Wellness & Nutrition",
+        concern: "Immunity",
+        concernName: "Vitamins & Energy",
+        brand: "Sun Pharmaceutical Industries Ltd",
+        composition: "Natural Ginseng + 10 Vitamins + 9 Minerals",
+        mrp: 550.00,
+        price: 440.00,
+        discount: 20,
+        packSize: "Bottle of 60 capsules",
+        rxRequired: false,
+        rating: 4.8,
+        reviewsCount: 610,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1550572017-edd951aa8f72?w=500&auto=format&fit=crop&q=60",
+        description: "Formulated with Ginseng extract and essential micronutrients to boost stamina, mental alertness, and fight daily fatigue.",
+        dosage: "1 capsule daily after breakfast with water.",
+        tags: ["revital", "multivitamin", "ginseng", "energy", "sun pharma"]
+    },
+    {
+        id: "prod-029",
+        name: "Limcee 500mg Chewable Vitamin C Tablet (Orange)",
+        slug: "limcee-500mg-chewable-vitamin-c-orange",
+        category: "wellness",
+        categoryName: "Wellness & Nutrition",
+        concern: "Immunity",
+        concernName: "Immunity & Vitamins",
+        brand: "Abbott India Ltd",
+        composition: "Ascorbic Acid (Vitamin C 500mg)",
+        mrp: 28.00,
+        price: 22.40,
+        discount: 20,
+        packSize: "Strip of 15 chewable tablets",
+        rxRequired: false,
+        rating: 4.9,
+        reviewsCount: 880,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=60",
+        description: "Delicious orange-flavored chewable Vitamin C tablet for skin glow, wound healing, and powerful antioxidant defense.",
+        dosage: "Chew 1 tablet daily or as advised.",
+        tags: ["limcee", "vitamin c", "immunity", "chewable", "abbott"]
+    },
+    {
+        id: "prod-030",
+        name: "Betadine 10% Ointment (20g)",
+        slug: "betadine-10-ointment-20g",
+        category: "personal-care",
+        categoryName: "Personal Care & First Aid",
+        concern: "First Aid",
+        concernName: "Wound & First Aid",
+        brand: "Win-Medicare Pvt Ltd",
+        composition: "Povidone Iodine (10% w/w)",
+        mrp: 125.00,
+        price: 100.00,
+        discount: 20,
+        packSize: "Tube of 20g",
+        rxRequired: false,
+        rating: 4.8,
+        reviewsCount: 420,
+        inStock: true,
+        image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500&auto=format&fit=crop&q=60",
+        description: "Broad-spectrum antiseptic ointment that kills bacteria, fungi, and viruses to prevent infections in minor burns and cuts.",
+        dosage: "Clean wound and apply topically once or twice daily.",
+        tags: ["betadine", "povidone", "first aid", "antiseptic ointment"]
+    }
+];
+
+// Helper lookup collections
+const CATEGORIES = [
+    { id: "all", name: "All Categories", icon: "bi-grid-fill", count: PRODUCTS.length },
+    { id: "medicines", name: "Prescription Medicines", icon: "bi-capsule-pill", count: PRODUCTS.filter(p => p.category === 'medicines').length },
+    { id: "ayush", name: "Dawakhana Unani & Ayush", icon: "bi-flower1", count: PRODUCTS.filter(p => p.category === 'ayush').length },
+    { id: "diabetes-care", name: "Diabetes Care", icon: "bi-activity", count: PRODUCTS.filter(p => p.category === 'diabetes-care').length },
+    { id: "healthcare-devices", name: "Healthcare Devices", icon: "bi-heart-pulse-fill", count: PRODUCTS.filter(p => p.category === 'healthcare-devices').length },
+    { id: "baby-care", name: "Baby & Mother Care", icon: "bi-emoji-smile", count: PRODUCTS.filter(p => p.category === 'baby-care').length },
+    { id: "wellness", name: "Wellness & Nutrition", icon: "bi-shield-plus", count: PRODUCTS.filter(p => p.category === 'wellness').length },
+    { id: "personal-care", name: "Personal Care & First Aid", icon: "bi-bandaid-fill", count: PRODUCTS.filter(p => p.category === 'personal-care').length }
+];
+
+const HEALTH_CONCERNS = [
+    { id: "Fever", name: "Fever & Pain", icon: "bi-thermometer-half", color: "#EF4444" },
+    { id: "Cold", name: "Cough & Cold", icon: "bi-snow", color: "#3B82F6" },
+    { id: "Diabetes", name: "Diabetes Care", icon: "bi-droplet-half", color: "#10B981" },
+    { id: "Digestive", name: "Stomach & Digestion", icon: "bi-lungs", color: "#F59E0B" },
+    { id: "Heart", name: "Heart & BP Care", icon: "bi-heart-pulse", color: "#EC4899" },
+    { id: "Bone", name: "Joint & Bone Pain", icon: "bi-person-arms-up", color: "#8B5CF6" },
+    { id: "Immunity", name: "Immunity & Energy", icon: "bi-shield-check", color: "#14B8A6" },
+    { id: "Skin", name: "Skin & Hair", icon: "bi-sparkles", color: "#F97316" }
+];
+
+const BRANDS = [
+    "Micro Labs Ltd", "GlaxoSmithKline", "Alkem Laboratories Ltd", "Glenmark Pharmaceuticals Ltd",
+    "Cipla Ltd", "Roche Diagnostics", "Omron Healthcare", "The Himalaya Drug Company",
+    "Dabur India Ltd", "Hamdard Laboratories", "Dawakhana Apothecary", "Sun Pharmaceutical Industries Ltd",
+    "Abbott India Ltd", "Procter & Gamble", "Sebapharma Germany"
+];
+
+// Configuration
+const CONFIG = {
+    brandName: "Dawakhana.com",
+    tagline: "आपका स्वास्थ्य, हमारी प्राथमिकता",
+    englishTagline: "Trusted Digital Pharmacy & Herbal Dispensary",
+    phone: "+91 98765 43210",
+    phoneRaw: "919876543210",
+    whatsapp: "919876543210",
+    address: "Opposite SBI Main Branch, Central Market, New Delhi - 110001",
+    drugLicenseNo: "DL-20B/21B-45920/2024",
+    pharmacistName: "Dr. A. R. Qureshi (Regd. Pharmacist #PH-89421)",
+    freeDeliveryThreshold: 500,
+    deliveryFee: 40,
+    discountRate: 0.20 // 20% off
+};
+
+</script>
+    <script id="embedded-app">
+/**
+ * Dawakhana.com - Interactive Web Application Engine
+ * Cart Management, Instant Search, WhatsApp Ordering, Rx Upload & Pincode Checker
+ */
+
+(function () {
+    'use strict';
+
+    // State
+    const DawakhanaApp = {
+        cart: [],
+        currentPincode: localStorage.getItem('dw_pincode') || '110001',
+        currentLocationName: localStorage.getItem('dw_location') || 'Connaught Place, New Delhi',
+
+        init() {
+            this.loadCart();
+            this.setupSearch();
+            this.setupPincode();
+            this.setupPrescriptionUpload();
+            this.setupModalsAndEvents();
+            this.updateCartUI();
+        },
+
+        // --- CART MANAGEMENT ---
+        loadCart() {
+            try {
+                const saved = localStorage.getItem('dw_cart');
+                this.cart = saved ? JSON.parse(saved) : [];
+            } catch (e) {
+                this.cart = [];
+            }
+        },
+
+        saveCart() {
+            localStorage.setItem('dw_cart', JSON.stringify(this.cart));
+            this.updateCartUI();
+            this.refreshProductCardButtons();
+        },
+
+        addToCart(productId, qty = 1) {
+            const product = PRODUCTS.find(p => p.id === productId);
+            if (!product) return;
+
+            const existing = this.cart.find(item => item.id === productId);
+            if (existing) {
+                existing.qty += qty;
+            } else {
+                this.cart.push({
+                    id: product.id,
+                    name: product.name,
+                    brand: product.brand,
+                    price: product.price,
+                    mrp: product.mrp,
+                    packSize: product.packSize,
+                    image: product.image,
+                    rxRequired: product.rxRequired,
+                    qty: qty
+                });
+            }
+
+            this.saveCart();
+            this.showToast(`${product.name} added to cart`, 'success');
+        },
+
+        updateCartQty(productId, delta) {
+            const index = this.cart.findIndex(item => item.id === productId);
+            if (index === -1) return;
+
+            this.cart[index].qty += delta;
+            if (this.cart[index].qty <= 0) {
+                const removedName = this.cart[index].name;
+                this.cart.splice(index, 1);
+                this.showToast(`${removedName} removed from cart`, 'info');
+            }
+            this.saveCart();
+        },
+
+        removeFromCart(productId) {
+            this.cart = this.cart.filter(item => item.id !== productId);
+            this.saveCart();
+            this.showToast('Item removed from cart', 'info');
+        },
+
+        clearCart() {
+            this.cart = [];
+            this.saveCart();
+        },
+
+        getCartTotals() {
+            const count = this.cart.reduce((sum, item) => sum + item.qty, 0);
+            const subtotal = this.cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const totalMrp = this.cart.reduce((sum, item) => sum + (item.mrp * item.qty), 0);
+            const totalSavings = Math.max(0, totalMrp - subtotal);
+            const isFreeDelivery = subtotal >= CONFIG.freeDeliveryThreshold;
+            const deliveryFee = subtotal === 0 ? 0 : (isFreeDelivery ? 0 : CONFIG.deliveryFee);
+            const grandTotal = subtotal + deliveryFee;
+            const remainingForFree = Math.max(0, CONFIG.freeDeliveryThreshold - subtotal);
+            const freeDeliveryProgress = Math.min(100, Math.round((subtotal / CONFIG.freeDeliveryThreshold) * 100));
+
+            return {
+                count,
+                subtotal: Math.round(subtotal * 100) / 100,
+                totalMrp: Math.round(totalMrp * 100) / 100,
+                totalSavings: Math.round(totalSavings * 100) / 100,
+                isFreeDelivery,
+                deliveryFee,
+                grandTotal: Math.round(grandTotal * 100) / 100,
+                remainingForFree: Math.round(remainingForFree * 100) / 100,
+                freeDeliveryProgress
+            };
+        },
+
+        updateCartUI() {
+            const totals = this.getCartTotals();
+
+            // Update badge counts
+            document.querySelectorAll('.dw-cart-count-badge').forEach(badge => {
+                badge.textContent = totals.count;
+                badge.style.display = totals.count > 0 ? 'inline-block' : 'none';
+            });
+
+            // Update Cart Drawer Items
+            const itemsContainer = document.getElementById('dwCartItemsList');
+            const emptyContainer = document.getElementById('dwCartEmptyState');
+            const footerContainer = document.getElementById('dwCartFooter');
+
+            if (itemsContainer && emptyContainer && footerContainer) {
+                if (this.cart.length === 0) {
+                    itemsContainer.innerHTML = '';
+                    emptyContainer.classList.remove('d-none');
+                    footerContainer.classList.add('d-none');
+                } else {
+                    emptyContainer.classList.add('d-none');
+                    footerContainer.classList.remove('d-none');
+
+                    // Free delivery progress bar
+                    const meterMsg = document.getElementById('dwFreeDeliveryMsg');
+                    const meterBar = document.getElementById('dwFreeDeliveryProgress');
+                    if (meterMsg && meterBar) {
+                        if (totals.isFreeDelivery) {
+                            meterMsg.innerHTML = `<i class="bi bi-check-circle-fill text-success me-1"></i> <strong>Congratulations!</strong> You qualify for <strong>FREE Delivery</strong>`;
+                            meterBar.style.width = '100%';
+                        } else {
+                            meterMsg.innerHTML = `<i class="bi bi-truck me-1 text-dw-primary"></i> Add <strong>₹${totals.remainingForFree}</strong> more to get <strong>FREE Express Delivery</strong>!`;
+                            meterBar.style.width = `${totals.freeDeliveryProgress}%`;
+                        }
+                    }
+
+                    // Render items list
+                    itemsContainer.innerHTML = this.cart.map(item => `
+                        <div class="dw-cart-item">
+                            <img src="${item.image}" alt="${item.name}" class="dw-cart-item-thumb">
+                            <div class="flex-grow-1">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h6 class="mb-0 fs-6 fw-bold">${item.name}</h6>
+                                        <small class="text-muted">${item.packSize || item.brand}</small>
+                                        ${item.rxRequired ? '<span class="badge bg-danger-subtle text-danger ms-1">Rx</span>' : ''}
+                                    </div>
+                                    <button class="btn btn-sm text-danger p-0 border-0" onclick="window.DawakhanaApp.removeFromCart('${item.id}')" title="Remove">
+                                        <i class="bi bi-trash3"></i>
+                                    </button>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <div>
+                                        <span class="fw-bold text-dw-primary">₹${(item.price * item.qty).toFixed(2)}</span>
+                                        <span class="text-decoration-line-through text-muted small ms-1">₹${(item.mrp * item.qty).toFixed(2)}</span>
+                                    </div>
+                                    <div class="d-inline-flex align-items-center border rounded-pill px-2 py-0 bg-light">
+                                        <button class="btn btn-sm p-0 border-0 text-muted fw-bold" onclick="window.DawakhanaApp.updateCartQty('${item.id}', -1)">−</button>
+                                        <span class="px-2 fw-bold small">${item.qty}</span>
+                                        <button class="btn btn-sm p-0 border-0 text-dw-primary fw-bold" onclick="window.DawakhanaApp.updateCartQty('${item.id}', 1)">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('');
+
+                    // Summary numbers
+                    const subtotalEl = document.getElementById('dwCartSubtotal');
+                    const savingsEl = document.getElementById('dwCartSavings');
+                    const deliveryEl = document.getElementById('dwCartDeliveryFee');
+                    const grandTotalEl = document.getElementById('dwCartGrandTotal');
+
+                    if (subtotalEl) subtotalEl.textContent = `₹${totals.subtotal.toFixed(2)}`;
+                    if (savingsEl) savingsEl.textContent = `−₹${totals.totalSavings.toFixed(2)}`;
+                    if (deliveryEl) deliveryEl.textContent = totals.isFreeDelivery ? 'FREE' : `₹${totals.deliveryFee.toFixed(2)}`;
+                    if (grandTotalEl) grandTotalEl.textContent = `₹${totals.grandTotal.toFixed(2)}`;
+                }
+            }
+        },
+
+        // --- PRODUCT CARD GENERATOR ---
+        renderProductCard(product) {
+            const cartItem = this.cart.find(c => c.id === product.id);
+            const qty = cartItem ? cartItem.qty : 0;
+            const savings = Math.round(product.mrp - product.price);
+
+            return `
+                <div class="col-6 col-md-4 col-lg-3 mb-4">
+                    <div class="dw-product-card" data-product-id="${product.id}">
+                        <div class="dw-product-badge-wrap">
+                            <span class="dw-badge-discount">${product.discount}% OFF</span>
+                            ${product.rxRequired ? '<span class="dw-badge-rx"><i class="bi bi-file-earmark-medical me-1"></i>Rx</span>' : ''}
+                        </div>
+                        <div class="dw-product-img-wrap" onclick="window.DawakhanaApp.openQuickView('${product.id}')">
+                            <img src="${product.image}" alt="${product.name}" class="dw-product-img" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=60'">
+                        </div>
+                        <div class="dw-product-body">
+                            <span class="dw-product-brand">${product.brand}</span>
+                            <h3 class="dw-product-title" onclick="window.DawakhanaApp.openQuickView('${product.id}')" title="${product.name}">${product.name}</h3>
+                            <div class="dw-product-composition">${product.composition}</div>
+                            <div class="dw-product-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <span>${product.rating}</span>
+                                <span class="text-muted fw-normal">(${product.reviewsCount})</span>
+                            </div>
+                            <div class="dw-product-price-row">
+                                <span class="dw-price-current">₹${product.price.toFixed(2)}</span>
+                                <span class="dw-price-mrp">₹${product.mrp.toFixed(2)}</span>
+                                <span class="dw-price-save">Save ₹${savings}</span>
+                            </div>
+                            
+                            <div class="dw-btn-container" id="dwBtnWrap-${product.id}">
+                                ${this.renderCardButton(product.id, qty)}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        },
+
+        renderCardButton(productId, qty) {
+            if (qty > 0) {
+                return `
+                    <div class="dw-qty-stepper">
+                        <button class="dw-qty-btn" onclick="window.DawakhanaApp.updateCartQty('${productId}', -1)">−</button>
+                        <span class="dw-qty-val">${qty}</span>
+                        <button class="dw-qty-btn" onclick="window.DawakhanaApp.updateCartQty('${productId}', 1)">+</button>
+                    </div>
+                `;
+            } else {
+                return `
+                    <button class="dw-btn-add" onclick="window.DawakhanaApp.addToCart('${productId}', 1)">
+                        <i class="bi bi-cart-plus"></i> Add to Cart
+                    </button>
+                `;
+            }
+        },
+
+        refreshProductCardButtons() {
+            PRODUCTS.forEach(p => {
+                const wrap = document.getElementById(`dwBtnWrap-${p.id}`);
+                if (wrap) {
+                    const cartItem = this.cart.find(c => c.id === p.id);
+                    wrap.innerHTML = this.renderCardButton(p.id, cartItem ? cartItem.qty : 0);
+                }
+            });
+        },
+
+        // --- SEARCH ENGINE WITH HIGHLIGHTING ---
+        setupSearch() {
+            const inputs = document.querySelectorAll('.dw-search-input');
+            const dropdowns = document.querySelectorAll('.dw-search-results-dropdown');
+
+            inputs.forEach(input => {
+                const parent = input.closest('.dw-search-box');
+                const dropdown = parent ? parent.querySelector('.dw-search-results-dropdown') : null;
+                const clearBtn = parent ? parent.querySelector('.dw-search-clear') : null;
+
+                input.addEventListener('input', (e) => {
+                    const query = e.target.value.trim().toLowerCase();
+                    if (clearBtn) clearBtn.style.display = query ? 'block' : 'none';
+
+                    if (!query || query.length < 2) {
+                        if (dropdown) dropdown.style.display = 'none';
+                        return;
+                    }
+
+                    const matches = PRODUCTS.filter(p => {
+                        return p.name.toLowerCase().includes(query) ||
+                               p.composition.toLowerCase().includes(query) ||
+                               p.brand.toLowerCase().includes(query) ||
+                               p.tags.some(t => t.toLowerCase().includes(query));
+                    }).slice(0, 6);
+
+                    if (dropdown) {
+                        if (matches.length === 0) {
+                            dropdown.innerHTML = `
+                                <div class="p-3 text-center text-muted">
+                                    <i class="bi bi-search me-1"></i> No medicines found for "<strong>${escapeHtml(query)}</strong>"
+                                    <div class="mt-2">
+                                        <a href="javascript:void(0)" onclick="window.DawakhanaApp.openPrescriptionModal()" class="btn btn-sm btn-outline-success">
+                                            <i class="bi bi-upload me-1"></i> Upload Prescription Instead
+                                        </a>
+                                    </div>
+                                </div>
+                            `;
+                        } else {
+                            dropdown.innerHTML = matches.map(m => `
+                                <div class="dw-search-item" onclick="window.DawakhanaApp.openQuickView('${m.id}')">
+                                    <img src="${m.image}" alt="${m.name}" class="dw-search-item-thumb">
+                                    <div class="dw-search-item-info">
+                                        <div class="dw-search-item-name">${highlightMatch(m.name, query)}</div>
+                                        <div class="dw-search-item-meta">${highlightMatch(m.composition, query)} • <span class="text-muted">${m.brand}</span></div>
+                                    </div>
+                                    <div class="dw-search-item-price">
+                                        ₹${m.price.toFixed(2)}
+                                        <div class="text-decoration-line-through text-muted small">₹${m.mrp.toFixed(2)}</div>
+                                    </div>
+                                </div>
+                            `).join('') + `
+                                <div class="p-2 bg-light text-center border-top">
+                                    <a href="catalogue.html?q=${encodeURIComponent(query)}" class="small fw-bold text-dw-primary">
+                                        View all results for "${escapeHtml(query)}" &rarr;
+                                    </a>
+                                </div>
+                            `;
+                        }
+                        dropdown.style.display = 'block';
+                    }
+                });
+
+                // Clear button handler
+                if (clearBtn) {
+                    clearBtn.addEventListener('click', () => {
+                        input.value = '';
+                        clearBtn.style.display = 'none';
+                        if (dropdown) dropdown.style.display = 'none';
+                        input.focus();
+                    });
+                }
+
+                // Close on outside click
+                document.addEventListener('click', (e) => {
+                    if (!input.contains(e.target) && dropdown && !dropdown.contains(e.target)) {
+                        dropdown.style.display = 'none';
+                    }
+                });
+            });
+        },
+
+        // --- QUICK VIEW PRODUCT MODAL ---
+        openQuickView(productId) {
+            const product = PRODUCTS.find(p => p.id === productId);
+            if (!product) return;
+
+            const modalEl = document.getElementById('dwQuickViewModal');
+            if (!modalEl) return;
+
+            const titleEl = document.getElementById('dwQuickViewTitle');
+            const brandEl = document.getElementById('dwQuickViewBrand');
+            const compEl = document.getElementById('dwQuickViewComp');
+            const imgEl = document.getElementById('dwQuickViewImg');
+            const priceEl = document.getElementById('dwQuickViewPrice');
+            const mrpEl = document.getElementById('dwQuickViewMrp');
+            const discountEl = document.getElementById('dwQuickViewDiscount');
+            const descEl = document.getElementById('dwQuickViewDesc');
+            const dosageEl = document.getElementById('dwQuickViewDosage');
+            const rxWrapEl = document.getElementById('dwQuickViewRxBadge');
+            const btnWrapEl = document.getElementById('dwQuickViewActionWrap');
+
+            if (titleEl) titleEl.textContent = product.name;
+            if (brandEl) brandEl.textContent = product.brand;
+            if (compEl) compEl.textContent = product.composition;
+            if (imgEl) imgEl.src = product.image;
+            if (priceEl) priceEl.textContent = `₹${product.price.toFixed(2)}`;
+            if (mrpEl) mrpEl.textContent = `₹${product.mrp.toFixed(2)}`;
+            if (discountEl) discountEl.textContent = `${product.discount}% OFF (Save ₹${Math.round(product.mrp - product.price)})`;
+            if (descEl) descEl.textContent = product.description;
+            if (dosageEl) dosageEl.textContent = product.dosage;
+
+            if (rxWrapEl) {
+                rxWrapEl.innerHTML = product.rxRequired ?
+                    `<div class="alert alert-danger py-1 px-2 d-inline-flex align-items-center mb-0 small">
+                        <i class="bi bi-file-earmark-medical me-1"></i> Doctor's Prescription (Rx) Required
+                    </div>` :
+                    `<div class="alert alert-success py-1 px-2 d-inline-flex align-items-center mb-0 small">
+                        <i class="bi bi-check-circle me-1"></i> OTC / Direct Order Available
+                    </div>`;
+            }
+
+            if (btnWrapEl) {
+                const cartItem = this.cart.find(c => c.id === product.id);
+                btnWrapEl.innerHTML = `
+                    <button class="btn btn-outline-success me-2" onclick="window.DawakhanaApp.orderProductOnWhatsApp('${product.id}')">
+                        <i class="bi bi-whatsapp me-1"></i> Order on WhatsApp
+                    </button>
+                    <button class="btn btn-dw-primary" onclick="window.DawakhanaApp.addToCart('${product.id}', 1); bootstrap.Modal.getInstance(document.getElementById('dwQuickViewModal')).hide();">
+                        <i class="bi bi-cart-plus me-1"></i> Add to Cart
+                    </button>
+                `;
+            }
+
+            const bsModal = bootstrap.Modal.getOrCreateInstance(modalEl);
+            bsModal.show();
+        },
+
+        // --- PINCODE & DELIVERY ---
+        setupPincode() {
+            const locationDisplays = document.querySelectorAll('.dw-pincode-display');
+            locationDisplays.forEach(el => {
+                el.textContent = `${this.currentLocationName} (${this.currentPincode})`;
+            });
+
+            const pincodeForm = document.getElementById('dwPincodeForm');
+            if (pincodeForm) {
+                pincodeForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const input = document.getElementById('dwPincodeInput');
+                    const pin = input ? input.value.trim() : '';
+
+                    if (!/^\d{6}$/.test(pin)) {
+                        alert('Please enter a valid 6-digit Indian PIN code.');
+                        return;
+                    }
+
+                    // Known city lookup or fallback
+                    let city = 'Delhi NCR';
+                    if (pin.startsWith('11')) city = 'New Delhi';
+                    else if (pin.startsWith('20')) city = 'Noida / Ghaziabad';
+                    else if (pin.startsWith('12')) city = 'Gurugram / Faridabad';
+                    else if (pin.startsWith('40')) city = 'Mumbai';
+                    else if (pin.startsWith('56')) city = 'Bengaluru';
+                    else if (pin.startsWith('70')) city = 'Kolkata';
+                    else if (pin.startsWith('60')) city = 'Chennai';
+                    else city = 'Express Delivery Hub';
+
+                    this.currentPincode = pin;
+                    this.currentLocationName = city;
+                    localStorage.setItem('dw_pincode', pin);
+                    localStorage.setItem('dw_location', city);
+
+                    locationDisplays.forEach(el => {
+                        el.textContent = `${city} (${pin})`;
+                    });
+
+                    const modalEl = document.getElementById('dwPincodeModal');
+                    if (modalEl) {
+                        const bsModal = bootstrap.Modal.getInstance(modalEl);
+                        if (bsModal) bsModal.hide();
+                    }
+
+                    this.showToast(`Delivery location set to ${city} (${pin})`, 'success');
+                });
+            }
+        },
+
+        // --- PRESCRIPTION UPLOAD & WHATSAPP INTEGRATION ---
+        setupPrescriptionUpload() {
+            const dropzone = document.getElementById('dwRxDropzone');
+            const fileInput = document.getElementById('dwRxFileInput');
+            const previewWrap = document.getElementById('dwRxPreviewWrap');
+            const previewImg = document.getElementById('dwRxPreviewImg');
+            const fileNameEl = document.getElementById('dwRxFileName');
+            const removeBtn = document.getElementById('dwRxRemoveFileBtn');
+            const rxForm = document.getElementById('dwRxUploadForm');
+
+            let selectedFile = null;
+
+            if (dropzone && fileInput) {
+                dropzone.addEventListener('click', () => fileInput.click());
+
+                dropzone.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    dropzone.classList.add('dragover');
+                });
+
+                dropzone.addEventListener('dragleave', () => dropzone.classList.remove('dragover'));
+
+                dropzone.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    dropzone.classList.remove('dragover');
+                    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                        handleFile(e.dataTransfer.files[0]);
+                    }
+                });
+
+                fileInput.addEventListener('change', () => {
+                    if (fileInput.files && fileInput.files[0]) {
+                        handleFile(fileInput.files[0]);
+                    }
+                });
+            }
+
+            function handleFile(file) {
+                selectedFile = file;
+                if (fileNameEl) fileNameEl.textContent = `${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
+                
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        if (previewImg) previewImg.src = e.target.result;
+                        if (previewWrap) previewWrap.classList.remove('d-none');
+                        if (dropzone) dropzone.classList.add('d-none');
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    if (previewImg) previewImg.src = 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=60';
+                    if (previewWrap) previewWrap.classList.remove('d-none');
+                    if (dropzone) dropzone.classList.add('d-none');
+                }
+            }
+
+            if (removeBtn) {
+                removeBtn.addEventListener('click', () => {
+                    selectedFile = null;
+                    if (fileInput) fileInput.value = '';
+                    if (previewWrap) previewWrap.classList.add('d-none');
+                    if (dropzone) dropzone.classList.remove('d-none');
+                });
+            }
+
+            if (rxForm) {
+                rxForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const name = document.getElementById('dwRxName')?.value.trim() || 'Valued Customer';
+                    const phone = document.getElementById('dwRxPhone')?.value.trim() || '';
+                    const address = document.getElementById('dwRxAddress')?.value.trim() || 'As per doctor prescription';
+                    const notes = document.getElementById('dwRxNotes')?.value.trim() || 'Please check dosage & send total amount with discount';
+
+                    const leadCode = 'DW-RX-' + Math.floor(100000 + Math.random() * 900000);
+
+                    // Formatted WhatsApp message
+                    const waText = 
+                        `*📋 NEW PRESCRIPTION ORDER - DAWAKHANA.COM*\n` +
+                        `-----------------------------------------\n` +
+                        `*Order/Lead ID:* ${leadCode}\n` +
+                        `*Patient Name:* ${name}\n` +
+                        `*Mobile No:* ${phone}\n` +
+                        `*Delivery Address:* ${address}\n` +
+                        `*Note:* ${notes}\n` +
+                        `*File Uploaded:* ${selectedFile ? selectedFile.name : 'Prescription Photo attached'}\n` +
+                        `-----------------------------------------\n` +
+                        `Please verify the prescription with your licensed pharmacist and send medicine details with 20% discount. Thank you!`;
+
+                    const waUrl = `https://api.whatsapp.com/send?phone=${CONFIG.whatsapp}&text=${encodeURIComponent(waText)}`;
+
+                    // Close modal if open
+                    const modalEl = document.getElementById('dwRxModal');
+                    if (modalEl) {
+                        const bsModal = bootstrap.Modal.getInstance(modalEl);
+                        if (bsModal) bsModal.hide();
+                    }
+
+                    // Open WhatsApp
+                    window.open(waUrl, '_blank');
+                    this.showToast('Prescription order initialized! Opening WhatsApp...', 'success');
+                });
+            }
+        },
+
+        // --- ORDER CHECKOUT VIA WHATSAPP ---
+        checkoutViaWhatsApp() {
+            if (this.cart.length === 0) {
+                alert('Your cart is empty! Please add some medicines first.');
+                return;
+            }
+
+            const totals = this.getCartTotals();
+            const orderId = 'DW-ORD-' + Math.floor(100000 + Math.random() * 900000);
+
+            let itemsList = '';
+            this.cart.forEach((item, i) => {
+                itemsList += `${i + 1}. *${item.name}* (Qty: ${item.qty}) - ₹${(item.price * item.qty).toFixed(2)}\n`;
+            });
+
+            const waText = 
+                `*🛒 ORDER FROM DAWAKHANA.COM*\n` +
+                `*Order ID:* ${orderId}\n` +
+                `*Delivery Location:* ${this.currentLocationName} (${this.currentPincode})\n` +
+                `-----------------------------------------\n` +
+                itemsList +
+                `-----------------------------------------\n` +
+                `*Subtotal:* ₹${totals.subtotal.toFixed(2)}\n` +
+                `*Total Savings (20% Off):* ₹${totals.totalSavings.toFixed(2)}\n` +
+                `*Delivery Fee:* ${totals.isFreeDelivery ? 'FREE (Orders above ₹500)' : '₹' + totals.deliveryFee.toFixed(2)}\n` +
+                `*Grand Total:* ₹${totals.grandTotal.toFixed(2)}\n` +
+                `-----------------------------------------\n` +
+                `Please confirm this order and dispatch to my location.`;
+
+            const waUrl = `https://api.whatsapp.com/send?phone=${CONFIG.whatsapp}&text=${encodeURIComponent(waText)}`;
+            window.open(waUrl, '_blank');
+        },
+
+        orderProductOnWhatsApp(productId) {
+            const product = PRODUCTS.find(p => p.id === productId);
+            if (!product) return;
+
+            const text = 
+                `*🩺 ORDER INQUIRY - DAWAKHANA.COM*\n` +
+                `Hello Dawakhana! I want to order:\n` +
+                `*Product:* ${product.name}\n` +
+                `*Brand:* ${product.brand}\n` +
+                `*Offer Price:* ₹${product.price.toFixed(2)} (MRP: ₹${product.mrp.toFixed(2)})\n` +
+                `*Deliver to:* ${this.currentLocationName} (${this.currentPincode})\n` +
+                `Please confirm availability & delivery time.`;
+
+            const url = `https://api.whatsapp.com/send?phone=${CONFIG.whatsapp}&text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        },
+
+        openPrescriptionModal() {
+            const modalEl = document.getElementById('dwRxModal');
+            if (modalEl) {
+                const bsModal = bootstrap.Modal.getOrCreateInstance(modalEl);
+                bsModal.show();
+            } else {
+                window.location.href = 'prescription.html';
+            }
+        },
+
+        openCartDrawer() {
+            const offcanvasEl = document.getElementById('dwCartDrawer');
+            if (offcanvasEl) {
+                const bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
+                bsOffcanvas.show();
+            }
+        },
+
+        // --- TOAST NOTIFICATIONS ---
+        showToast(message, type = 'info') {
+            let container = document.getElementById('dwToastContainer');
+            if (!container) {
+                container = document.createElement('div');
+                container.id = 'dwToastContainer';
+                container.className = 'position-fixed bottom-0 start-50 translate-middle-x p-3';
+                container.style.zIndex = '2000';
+                document.body.appendChild(container);
+            }
+
+            const bgClass = type === 'success' ? 'bg-success text-white' : (type === 'danger' ? 'bg-danger text-white' : 'bg-dark text-white');
+            const icon = type === 'success' ? 'bi-check-circle-fill' : 'bi-info-circle-fill';
+
+            const toastEl = document.createElement('div');
+            toastEl.className = `toast align-items-center ${bgClass} border-0 shadow-lg`;
+            toastEl.setAttribute('role', 'alert');
+            toastEl.innerHTML = `
+                <div class="d-flex">
+                    <div class="toast-body d-flex align-items-center gap-2">
+                        <i class="bi ${icon}"></i>
+                        <span>${escapeHtml(message)}</span>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                </div>
+            `;
+
+            container.appendChild(toastEl);
+            const bsToast = new bootstrap.Toast(toastEl, { delay: 2800 });
+            bsToast.show();
+            toastEl.addEventListener('hidden.bs.toast', () => toastEl.remove());
+        },
+
+        setupModalsAndEvents() {
+            // Mobile search trigger
+            const mobSearchBtn = document.getElementById('dwMobSearchBtn');
+            if (mobSearchBtn) {
+                mobSearchBtn.addEventListener('click', () => {
+                    const input = document.querySelector('.dw-search-input');
+                    if (input) {
+                        input.focus();
+                        input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                });
+            }
+        }
+    };
+
+    // Helper functions
+    function highlightMatch(text, query) {
+        if (!query) return escapeHtml(text);
+        const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\<script src="assets/js/app.js"></script>');
+        const regex = new RegExp(`(${escaped})`, 'gi');
+        return escapeHtml(text).replace(regex, '<span class="bg-warning text-dark px-1 rounded">$1</span>');
+    }
+
+    function escapeHtml(str) {
+        if (!str) return '';
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+    }
+
+    // Export to global window
+    window.DawakhanaApp = DawakhanaApp;
+
+    // Auto-init on DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', () => {
+        DawakhanaApp.init();
+    });
+
+})();
+
+</script>
 
     <!-- Homepage Dynamic Injections -->
     <script>
